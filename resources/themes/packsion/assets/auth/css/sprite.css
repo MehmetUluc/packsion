@@ -1,0 +1,102 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.icon-box1 {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -39px;
+  width: 38px;
+  height: 29px;
+}
+.icon-box2 {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -360px;
+  width: 39px;
+  height: 38px;
+}
+.icon-cancel-account {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -192px;
+  width: 36px;
+  height: 36px;
+}
+.icon-cancel {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -88px;
+  width: 32px;
+  height: 32px;
+}
+.icon-checkbox {
+  background-image: url(../img/sprite.png);
+  background-position: 0px 0px;
+  width: 19px;
+  height: 19px;
+}
+.icon-free-shipping {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -248px;
+  width: 44px;
+  height: 36px;
+}
+.icon-happiness {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -304px;
+  width: 36px;
+  height: 36px;
+}
+.icon-logo {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -539px;
+  width: 67px;
+  height: 65px;
+}
+.icon-meet {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -476px;
+  width: 32px;
+  height: 43px;
+}
+.icon-recipe {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -418px;
+  width: 54px;
+  height: 38px;
+}
+.icon-ssl {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -140px;
+  width: 35px;
+  height: 32px;
+}
+.icon-what1 {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -624px;
+  width: 96px;
+  height: 67px;
+}
+.icon-what2 {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -711px;
+  width: 75px;
+  height: 75px;
+}
+.icon-what3 {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -806px;
+  width: 55px;
+  height: 76px;
+}

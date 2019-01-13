@@ -1,0 +1,255 @@
+@import "rem";
+//Mixins tekrar kullan?labilir ??eler
+
+//======================================
+//  Input Placeholder
+//======================================
+@mixin input-placeholder {
+  &.placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+  &::-webkit-input-placeholder {
+    @content;
+  }
+}
+
+//======================================
+// Buttons
+//======================================
+
+@mixin btn-maker($bgcolor, $color:#fff) {
+  background-color: $bgcolor;
+  border-bottom: 1px solid darken($bgcolor, 40%);
+  border-radius: 3px;
+  color: $color;
+  &:hover {
+    cursor: pointer;
+    background-color: darken($bgcolor, 10%);
+    color: $color;
+  }
+}
+
+
+//======================================
+// Buttons-line
+//======================================
+@mixin btn-line-maker($bgcolor:#fff, $color:#0077e1) {
+  background-color: #fff;
+  border: 1px solid $color;
+  color: $color;
+  &:hover {
+    cursor: pointer;
+    background-color: $color;
+    color: $bgcolor;
+  }
+}
+
+//======================================
+// Custom Bootstrap break point
+//======================================
+
+@mixin breakpoint($class) {
+  @if $class==xs {
+    @media (max-width: 767px) {
+      @content;
+    }
+  }
+  @else if $class==sm {
+    @media (min-width: 768px) and (max-width: 991px) {
+      @content;
+    }
+  }
+  @else if $class==md {
+    @media (min-width: 992px) and (max-width: 1199px) {
+      @content;
+    }
+  }
+  @else if $class==lg {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+  @else {
+    @warn "Breakpoint mixin supports: xs, sm, md, lg";
+  }
+}
+
+//======================================
+// Custom Bootstrap break point range
+//======================================
+@mixin maxWidth($class) {
+  @if $class==xs {
+    @media (max-width: 767px) {
+      @content;
+    }
+  }
+  @else if $class==sm {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+  @else if $class==md {
+    @media (max-width: 992px) {
+      @content;
+    }
+  }
+  @else if $class==lg {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+  @else {
+    @warn "maxWidth mixin supports: xs, sm, md, lg";
+  }
+}
+
+//======================================
+// Retina mixins
+//======================================
+@mixin background-image-retina($file, $type, $width, $height) {
+  background-image: url($file + '.' + $type);
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (-moz-min-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx){
+    & {
+      background-image: url($file + '@2x.' + $type);
+      -webkit-background-size: $width $height;
+      -moz-background-size: $width $height;
+      -o-background-size: $width $height;
+      background-size: $width $height;
+    }
+  }
+}
+// Usage
+// #logo {
+//    width: 200px;
+//    height: 100px;
+//    @include background-image-retina(logo, png, 200px, 100px);
+//  }
+
+//================================================================================
+// SVG background images with PNG and retina fallback
+// http://zerosixthree.se/8-sass-mixins-you-must-have-in-your-toolbox/
+//================================================================================
+
+$image-path: '../img' !default;
+$fallback-extension: 'png' !default;
+$retina-suffix: '@2x';
+@mixin background-image($name, $size:false){
+  background-image: url(#{$image-path}/#{$name}.svg);
+  @if($size){
+    background-size: $size;
+  }
+  .no-svg &{
+    background-image: url(#{$image-path}/#{$name}.#{$fallback-extension});
+
+    @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+      background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension});
+    }
+  }
+}
+
+// body {
+//    @include background-image('pattern');
+//}
+
+
+//==========================================
+// Set a rem font size with pixel fallback
+//==========================================
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+//  Usage
+//  p {
+//    @include font-size(14px)
+//  }
+
+
+//==========================================
+// Animations and keyframes
+//==========================================
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+// Usage
+//
+//  @include keyframes(slide-down) {
+//    0% { opacity: 1; }
+//    90% { opacity: 0; }
+//  }
+//  .element {
+//    width: 100px;
+//    height: 100px;
+//    background: black;
+//    @include animation('slide-down 5s 3');
+//  }
+
+
+//======================================
+//  Text Overflow
+//======================================
+
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+// Usage
+//  .text-truncate {
+//    @include text-truncate;
+//  }
+
+
+//======================================
+// Font-Size callback
+//======================================
+@mixin font-size($font-size) {
+  @if ($font-size == inherit) {
+    font-size: inherit;
+  } @else {
+    font-size: rem($font-size);
+  }
+}

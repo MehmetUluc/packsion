@@ -1,0 +1,316 @@
+<form method="post">
+    {{ csrf_field() }}
+    <input type="hidden" name="quiz[gender]" value="woman" />
+    <input type="hidden" name="product" value="{{ request()->get('product_id') }}" />
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="form-group">
+        <label>Bilgileri Saklamak istediğiniz isim</label>
+        <input type="text" name="quiz[title]" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Doğum Tarihiniz</label>
+        <input type="text" name="quiz[dob]" class="datepicker form-control">
+    </div>
+    <div class="form-group">
+        <label>Mesleğiniz</label>
+        <input type="text" name="quiz[job]" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Boyunuz</label>
+        <input type="text" name="quiz[boy]" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Kilonuz</label>
+        <input type="text" name="quiz[kilo]" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Vücut Tipinizi Seçin</label>
+      <br />
+      <div class="col-xs-3">
+        <img src="/packsion/images/woman/armut.jpg" class="img-responsive img-radio">
+        <button type="button" class="btn btn-primary btn-radio">Armut</button>
+        <input type="checkbox"  name="quiz[vucut]" value="armut" id="left-item" class="hidden">
+      </div>
+      <div class="col-xs-3">
+        <img src="/packsion/images/woman/cilek.jpg" class="img-responsive img-radio">
+        <button type="button" class="btn btn-primary btn-radio">Çilek</button>
+        <input type="checkbox" name="quiz[vucut]" value="cilek"  id="middle-item" class="hidden">
+      </div>
+      <div class="col-xs-3">
+        <img src="/packsion/images/woman/elma.jpg" class="img-responsive img-radio">
+        <button type="button" class="btn btn-primary btn-radio">Elma</button>
+        <input name="quiz[vucut]" value="elma" type="checkbox" id="right-item" class="hidden">
+      </div>
+      <div class="col-xs-3">
+        <img src="/packsion/images/woman/duz.jpg" class="img-responsive img-radio">
+        <button type="button" class="btn btn-primary btn-radio">Düz</button>
+        <input type="checkbox" name="quiz[vucut]" value="duz" id="right-item" class="hidden">
+      </div>
+      <div class="col-xs-3">
+        <img src="/packsion/images/woman/kumsaati.jpg" class="img-responsive img-radio">
+        <button type="button" class="btn btn-primary btn-radio">Kum Saati</button>
+        <input type="checkbox"  name="quiz[vucut]" value="kumsaati" id="right-item" class="hidden">
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="form-group">
+        <label>Standart Bedeniniz (Opsiyonel)</label>
+        <select class="form-control" name="quiz[standart_beden]">
+          <option value="">Seçiniz</option>
+          <option value="36">36</option>
+          <option value="38">38</option>
+          <option value="40">40</option>
+          <option value="42">42</option>
+          <option value="44">44</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Üst Bedeniniz</label>
+        <select class="form-control" name="quiz[üst_beden]">
+          <option value="">Seçiniz</option>
+          <option value="XS">XS</option>
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Alt Bedeniniz</label>
+        <select class="form-control" name="quiz[alt_beden]">
+          <option value="">Seçiniz</option>
+          <option value="24">24</option>
+          <option value="25">25</option>
+          <option value="26">26</option>
+          <option value="27">27</option>
+          <option value="28">28</option>
+          <option value="29">29</option>
+          <option value="30">30</option>
+          <option value="31">31</option>
+          <option value="32">32</option>
+          <option value="33">33</option>
+          <option value="34">34</option>
+
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Ayakkabı Numaranız</label>
+        <select class="form-control" name="quiz[ayakkabi_no]">
+          <option value="">Seçiniz</option>
+          <option value="35">35</option>
+          <option value="36">36</option>
+          <option value="37">37</option>
+          <option value="38">38</option>
+          <option value="39">39</option>
+          <option value="40">40</option>
+          <option value="41">41</option>
+          <option value="42">42</option>
+
+        </select>
+    </div>
+    <div class="form-group">
+      <label>Sizi ifade eden stil hangisidir? Birden fazla seçebilirsiniz</label>
+      <div class="col-md-3"><label class="btn btn-primary"><img src="/packsion/images/woman/casual.jpg" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="quiz[stil][]" id="item4" value="casual" class="hidden" autocomplete="off"></label></div>
+      <div class="col-md-3"><label class="btn btn-primary"><img src="/packsion/images/woman/classic.jpg" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="quiz[stil][]" id="item4" value="classic" class="hidden" autocomplete="off"></label></div>
+      <div class="col-md-3"><label class="btn btn-primary"><img src="/packsion/images/woman/freppy.jpg" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="quiz[stil][]" id="item4" value="freppy" class="hidden" autocomplete="off"></label></div>
+      <div class="col-md-3"><label class="btn btn-primary"><img src="/packsion/images/woman/fashion.jpg" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="quiz[stil][]" id="item4" value="fashion" class="hidden" autocomplete="off"></label></div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="form-group">
+        <label>İşe giderken bu stillerden hangisini tercih edersiniz? Bu soruda birden fazla seçeneği işaretleyebilirsiniz.</label>
+        <div class="clearfix"></div>
+        <div class="col-md-3"><label class="btn btn-primary"><img src="/packsion/images/woman/casual_1.jpg" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="quiz[bussiness_stil][]" id="item4" value="casual_1" class="hidden" autocomplete="off"></label></div>
+        <div class="col-md-3"><label class="btn btn-primary"><img src="/packsion/images/woman/smart_casual.jpg" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="quiz[bussiness_stil][]" id="item4" value="smart_casual" class="hidden" autocomplete="off"></label></div>
+        <div class="col-md-3"><label class="btn btn-primary"><img src="/packsion/images/woman/classic_1.jpg" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="quiz[bussiness_stil][]" id="item4" value="classic_1" class="hidden" autocomplete="off"></label></div>
+        <div class="col-md-3"><label class="btn btn-primary"><img src="/packsion/images/woman/elegant.jpg" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="quiz[bussiness_stil][]" id="item4" value="elegant" class="hidden" autocomplete="off"></label></div>
+
+        </div>
+        <div class="clearfix">
+
+        </div>
+        <div class="form-group">
+          <label>Kendinizi hangi renk grubu içinde görüyorsunuz? Bu soruda birden fazla seçeneği işaretleyebilirsiniz. </label>
+          <div class="clearfix"></div>
+      @for($i = 1; $i<=4; $i++)
+          <div class="col-md-3"><label class="btn btn-primary"><img src="/packsion/images/woman/renk_group{{ $i }}.jpg" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="quiz[renk_group][]" id="item4" value="renk_group{{ $i }}" class="hidden" autocomplete="off"></label></div>
+        @endfor
+      </div>
+      <div class="clearfix"></div>
+      <div class="form-group">
+        <label>Tercih etmeyeceğiniz desenler hangileridir?  </label>
+        <div class="clearfix"></div>
+        @for($i = 1; $i<=11; $i++)
+            <div class="col-md-3"><label class="btn btn-primary"><img src="/packsion/images/woman/desen{{ $i }}.jpg" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="quiz[desen][]" id="item4" value="desen{{ $i }}" class="hidden" autocomplete="off"></label></div>
+          @endfor
+
+
+
+          </div>
+          <div class="clearfix"></div>
+          <div class="form-group">
+            <label>Tercih etmeyeceğiniz renkler hangileridir?  </label>
+            <div class="clearfix"></div>
+        @for($i = 1; $i<=12; $i++)
+            <div class="col-md-3"><label class="btn btn-primary"><img src="/packsion/images/man/renk{{ $i }}.jpg" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="quiz[renk][]" id="item4" value="renk{{ $i }}" class="hidden" autocomplete="off"></label></div>
+          @endfor
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+          <label>Sizi ifade eden t-shirt hangisidir? Bu soruda birden fazla seçeneği işaretleyebilirsiniz. </label>
+          <div class="clearfix"></div>
+          <div class="col-md-4"><label class="btn btn-primary"><img src="/packsion/images/woman/croptop.jpg" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="quiz[tshirt][]" id="item4" value="croptop" class="hidden" autocomplete="off"></label></div>
+          <div class="col-md-4"><label class="btn btn-primary"><img src="/packsion/images/woman/oversize.jpg" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="quiz[tshirt][]" id="item4" value="oversize" class="hidden" autocomplete="off"></label></div>
+          <div class="col-md-4"><label class="btn btn-primary"><img src="/packsion/images/woman/straight.jpg" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="quiz[tshirt][]" id="item4" value="straight" class="hidden" autocomplete="off"></label></div>
+
+
+
+          </div>
+          <div class="clearfix">
+
+          </div>
+
+            <div class="form-group">
+              <label>Tercih ettiğiniz pantolon kalıbı hangisidir? Bu soruda birden fazla seçeneği işaretleyebilirsiniz.  </label>
+              <div class="clearfix"></div>
+              <div class="col-md-3"><label class="btn btn-primary"><img src="/packsion/images/woman/pantolon/clutte.jpg" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="quiz[pantolon][]" id="item4" value="clutte" class="hidden" autocomplete="off"></label></div>
+              <div class="col-md-3"><label class="btn btn-primary"><img src="/packsion/images/woman/pantolon/wideleg.jpg" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="quiz[pantolon][]" id="item4" value="wideleg" class="hidden" autocomplete="off"></label></div>
+              <div class="col-md-3"><label class="btn btn-primary"><img src="/packsion/images/woman/pantolon/carrotleg.jpg" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="quiz[pantolon][]" id="item4" value="carrotleg" class="hidden" autocomplete="off"></label></div>
+              <div class="col-md-3"><label class="btn btn-primary"><img src="/packsion/images/woman/pantolon/straight.jpg" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="quiz[pantolon][]" id="item4" value="straight" class="hidden" autocomplete="off"></label></div>
+              <div class="col-md-3"><label class="btn btn-primary"><img src="/packsion/images/woman/pantolon/skinny.jpg" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="quiz[pantolon][]" id="item4" value="skinny" class="hidden" autocomplete="off"></label></div>
+
+
+              </div>
+
+
+              <div class="clearfix">
+
+              </div>
+              <div class="form-group">
+                <label>Tercih ettiğiniz etek kalıbı hangisidir? Bu soruda birden fazla seçeneği işaretleyebilirsiniz.  </label>
+                <div class="clearfix"></div>
+                <div class="col-md-3"><label class="btn btn-primary"><img src="/packsion/images/woman/etek/midi.jpg" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="quiz[etek][]" id="item4" value="midi" class="hidden" autocomplete="off"></label></div>
+                <div class="col-md-3"><label class="btn btn-primary"><img src="/packsion/images/woman/etek/mini.jpg" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="quiz[etek][]" id="item4" value="mini" class="hidden" autocomplete="off"></label></div>
+                <div class="col-md-3"><label class="btn btn-primary"><img src="/packsion/images/woman/etek/flared.jpg" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="quiz[etek][]" id="item4" value="flared" class="hidden" autocomplete="off"></label></div>
+                <div class="col-md-3"><label class="btn btn-primary"><img src="/packsion/images/woman/etek/pencil.jpg" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="quiz[etek][]" id="item4" value="pencil" class="hidden" autocomplete="off"></label></div>
+                <div class="col-md-3"><label class="btn btn-primary"><img src="/packsion/images/woman/etek/maxi.jpg" alt="..." class="img-thumbnail img-check"><input type="checkbox" name="quiz[etek][]" id="item4" value="maxi" class="hidden" autocomplete="off"></label></div>
+
+
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group">
+                  <label>Vücudunuzda gizlemek istediğiniz alanlar var mı? Bu soruda birden fazla seçeneği işaretleyebilirsiniz.  </label>
+                  <div class="clearfix"></div>
+
+                    <input type="checkbox" name"quiz[gizli][]" value="Omuzlar" /> Omuzlar
+
+                    <input type="checkbox" name"quiz[gizli][]" value="Kollar" /> Kollar
+
+                    <input type="checkbox" name"quiz[gizli][]" value="Sırt" /> Sırt
+
+                    <input type="checkbox" name"quiz[gizli][]" value="Göğüs" />Göğüs
+
+                    <input type="checkbox" name"quiz[gizli][]" value="Karın" />Karın
+
+                    <input type="checkbox" name"quiz[gizli][]" value="Bacaklar" />Bacaklar
+
+                    <input type="checkbox" name"quiz[gizli][]" value="Hiçbiri" />Hiçbiri
+
+                    <input type="checkbox" name"quiz[gizli][]" value="Hepsi" />Hepsi
+
+                </div>
+
+                <div class="clearfix"></div>
+                <br />
+                <div class="form-group">
+                  <label>İlk gönderiminizde talep etmiş olduğunuz stil hangisidir? </label>
+                  <div class="col-md-3">
+                    <input type="radio" name"quiz[ilk_gonderim]" value="Günlük Şıklık" /> a) Günlük Şıklık
+                  </div>
+                  <div class="col-md-3">
+                    <input type="radio" name"quiz[ilk_gonderim]" value="Ofis Şıklığı" /> b) Ofis Şıklığı
+                  </div>
+                  <div class="col-md-3">
+                    <input type="radio" name"quiz[ilk_gonderim]" value="Gece Şıklığı" /> c) Gece Şıklığı
+                  </div>
+                  <div class="col-md-3">
+                    <input type="radio" name"quiz[ilk_gonderim]" value="Davet" /> d) Davet
+                  </div>
+                </div>
+
+                <div class="clearfix">
+
+                </div>
+                <br /><br />
+                <div class="form-group">
+                  <label>İstediğiniz tarzları öncelik sırasına göre, ilk önceliğiniz 1 olacak şekilde seçiniz. Bu bölümde sadece kutunuzda olmasını istediğiniz tarzlara sıralama girmeniz yeterlidir</label>
+                  <div class="col-md-12">
+                    a) Günlük Şıklık <select class="form-control" name="quiz[gunluk]">
+                        <option value="">Seçiniz</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                  </div>
+                  <div class="col-md-12">
+                    a) Ofis Şıklığı <select class="form-control" name="quiz[ofis]">
+                        <option value="">Seçiniz</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                  </div>
+                  <div class="col-md-12">
+                    a) Gece Şıklığı <select class="form-control" name="quiz[gece]">
+                        <option value="">Seçiniz</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                  </div>
+                  <div class="col-md-12">
+                    a) Davet Şıklığı <select class="form-control" name="quiz[davet]">
+                        <option value="">Seçiniz</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                  </div>
+                  <div class="col-md-12">
+                    <input type="checkbox" name="quiz[oncelik]" value="1"> Bir önceliğim yok.
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <br /><br />
+                <div class="form-group">
+                  <label>Sizinle nasıl iletişime geçebiliriz? (Opsiyonel)</label>
+                  <div class="col-md-12">
+                    <label for="facebook">Facebook</label>
+                    <input type="text" name="quiz[facebook]" id="facebook" />
+                  </div>
+                  <div class="col-md-12">
+                    <label for="instagram">Instagram</label>
+                    <input type="text" name="quiz[instagram]" id="instagram" />
+                  </div>
+                  <div class="col-md-12">
+                    <label for="telefon">Telefon</label>
+                    <input type="text" name="quiz[telefon]" id="telefon" />
+                  </div>
+
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="form-group">
+                  <button class="btn btn-lg btn-secondary w100p" type="submit">Devam Et</button>
+                </div>
+  </div>
+
+</div>
+
+
+
+</form>

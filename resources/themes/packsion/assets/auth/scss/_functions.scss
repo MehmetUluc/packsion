@@ -1,0 +1,22 @@
+//
+// REM converter
+// in style's config, we hope to have a base-font-size variable,
+// if not, we define it according to standart html font-size
+//
+@function rem($font-size) {
+  $convert-base: 16px;
+
+  @if variable_exists(base-font-size) {
+    $convert-base: $base-font-size;
+  }
+
+  $u: unit($font-size);
+
+  // rem calculations
+  @if ($u == 'rem'){
+    @return $font-size;
+  } @else {
+    $convert: $font-size/$convert-base;
+    @return #{$convert}rem;
+  }
+}

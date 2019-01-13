@@ -1,0 +1,99 @@
+//Fonts.css kullanilacak fontlar ve boyutlar
+@import "mixins";
+
+//Font boyutları
+.fz10{
+  @include rem(font-size, 1.0rem);
+}
+.fz11{
+  @include rem(font-size, 1.1rem);
+}
+.fz12{
+  @include rem(font-size, 1.2rem);
+}
+.fz13{
+  @include rem(font-size, 1.3rem);
+}
+.fz14{
+  @include rem(font-size, 1.4rem);
+}
+.fz15{
+  @include rem(font-size, 1.5rem);
+}
+.fz16{
+  @include rem(font-size, 1.6rem);
+}
+.fz17{
+  @include rem(font-size, 1.7rem);
+}
+.fz18{
+  @include rem(font-size, 1.8rem);
+}
+.fz19{
+  @include rem(font-size, 1.9rem);
+}
+.fz20{
+   @include rem(font-size, 2.0rem);
+ }
+.fz22{
+  @include rem(font-size, 2.2rem);
+}
+.fz24{
+  @include rem(font-size, 2.4rem);
+}
+.fz34{
+  @include rem(font-size, 3.4rem);
+}
+
+.ff-mr{
+  font-family: 'montserratregular',sans-serif;
+}
+.ff-msb{
+  font-family: 'montserratmedium',sans-serif;
+  font-weight: 500;
+}
+.ff-msbi{
+  font-family: 'montserratmedium_italic',sans-serif;
+}
+.ff-mb,.fwb{
+  font-family: 'montserratsemibold',sans-serif;
+}
+
+
+//Heading tanımlamaları
+h1{
+  @include rem(font-size, 2.8rem);
+}
+h2{
+  @include rem(font-size, 2.4rem);
+}
+h3{
+  @include rem(font-size, 1.8rem);
+}
+h4{
+  @include rem(font-size, 1.6rem);
+}
+h5{
+  @include rem(font-size, 1.4rem);
+}
+h6{
+  @include rem(font-size, 1.4rem);
+  @extend .ff-mb;
+}
+h1,h2,h3,h4,h5,h6{
+  @extend .ff-mb;
+  font-weight: normal;
+}
+
+strong {
+  font-weight: normal;
+  @extend .ff-mb;
+}
+
+// Line Height
+.lh40 {
+  line-height: 40px;
+}
+.lh38 {
+  line-height: 38px;
+}
