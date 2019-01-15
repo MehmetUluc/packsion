@@ -76,6 +76,7 @@
                       <th><?php echo e('Kalan Süre'); ?></th>
                       <th><?php echo e(trans('labels.DatePurchased')); ?></th>
                       <th><?php echo e(trans('Fatura')); ?></th>
+                      <th><?php echo e(trans('Payu İade')); ?></th>
                       <th><?php echo e(trans('labels.Status')); ?> </th>
                       <th><?php echo e(trans('labels.Action')); ?></th>
                     </tr>
@@ -83,6 +84,9 @@
                   <tbody>
                   <?php if(count($shipments)>0): ?>
                     <?php $__currentLoopData = $shipments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$orderData): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+                    
+
                     <?php if($orderData->status != 'confirmed' && $orderData->passive == 1 ): ?>
                       <?php 
                       $style = 'style=background:#f3cbcb;';
@@ -103,6 +107,7 @@
                             <td><?php echo e($orderData['shipment_count']  . ' Ay'); ?></td>
                             <td><?php echo e(date('d/m/Y', strtotime($orderData['order']->date_purchased))); ?> </td>
                             <td><?php if($orderData['parasut_id']): ?> <a href="javascript;" class="label label-warning">Faturalandırıldı</a>  <?php else: ?> <a href="/parasut/<?php echo e($orderData->id); ?>" class="label label-primary">Faturalandır</a> <?php endif; ?> </td>
+                            <td><?php if($orderData['reference_id'] && $orderData['irn'] == 0): ?> <a href="/payu/irn/<?php echo e($orderData->id); ?>" class="label label-warning">İade Et</a>  <?php elseif(!$orderData['reference_id']): ?> <a href="javascript;" class="label label-primary">Ödeme Yapılmadı</a> <?php elseif($orderData['irn'] == 1): ?> <a href="javascript;" class="label label-danger">İade Edildi</a> <?php endif; ?> </td>
                             <td>
                             	<?php if($orderData->status=='pending'): ?>
                                 <span class="label label-warning">

@@ -75,6 +75,7 @@
                       <th>{{ 'Kalan Süre' }}</th>
                       <th>{{ trans('labels.DatePurchased') }}</th>
                       <th>{{ trans('Fatura') }}</th>
+                      <th>{{ trans('Payu İade') }}</th>
                       <th>{{ trans('labels.Status') }} </th>
                       <th>{{ trans('labels.Action') }}</th>
                     </tr>
@@ -82,6 +83,9 @@
                   <tbody>
                   @if(count($shipments)>0)
                     @foreach ($shipments as $key=>$orderData)
+
+                    
+
                     @if($orderData->status != 'confirmed' && $orderData->passive == 1 )
                       @php
                       $style = 'style=background:#f3cbcb;';
@@ -102,6 +106,7 @@
                             <td>{{ $orderData['shipment_count']  . ' Ay'}}</td>
                             <td>{{ date('d/m/Y', strtotime($orderData['order']->date_purchased)) }} </td>
                             <td>@if($orderData['parasut_id']) <a href="javascript;" class="label label-warning">Faturalandırıldı</a>  @else <a href="/parasut/{{ $orderData->id }}" class="label label-primary">Faturalandır</a> @endif </td>
+                            <td>@if($orderData['reference_id'] && $orderData['irn'] == 0) <a href="/payu/irn/{{ $orderData->id }}" class="label label-warning">İade Et</a>  @elseif(!$orderData['reference_id']) <a href="javascript;" class="label label-primary">Ödeme Yapılmadı</a> @elseif($orderData['irn'] == 1) <a href="javascript;" class="label label-danger">İade Edildi</a> @endif </td>
                             <td>
                             	@if($orderData->status=='pending')
                                 <span class="label label-warning">

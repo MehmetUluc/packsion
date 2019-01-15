@@ -418,40 +418,30 @@ class PayuController extends Controller
 		$secretKey = "73r8^4re37]S#q52?q1r";
 
 		$shipment = Shipment::find($id);
-		$idn = array(
-		    'MERCHANT' => "PACKSONC",
-		    'ORDER_REF' => $shipment->reference_id,
-		    'ORDER_AMOUNT' => '2.00',//$shipment->price,
-		    'ORDER_CURRENCY' => 'TRY',
-		    'IDN_DATE' => date('Y-m-d H:i:s'),
+		$url = "https://secure.payu.com.tr/order/irn.php";
+		$secretKey = "@0WH|BJC07]A8@h9+le(";
+
+
+		$shipment->cancel = 1;
+		$shipment->save();
+
+		
+		$irn = array(
+		'MERCHANT' => "EDSFTRHY",
+		'ORDER_REF' => $shipment->reference_id,
+		'ORDER_AMOUNT' => $shipment->price,
+		'ORDER_CURRENCY' => 'TRY',
+		'IRN_DATE' => date('Y-m-d H:i:s', time()),
+		'AMOUNT' => $shipment->price,
 
 		);
 
-		if($request->has('tutar') && $request->tutar > 0){
-			$idn['CHARGE_AMOUNT'] = '1.00'; //$request->tutar;
-
-			$shipment->price = '1.00'; //$shipment->price - $request->tutar;
-			$shipment->status = 'confirmed';
-			$shipment->save();
-		} else {
-			$metas = ShippingMeta::where('shipping_id', $id)->where('meta_key', 'product')->where('status', 0)->sum('shipment_price');
-			$idn['CHARGE_AMOUNT'] = $shipment->price - $metas;
-			$shipment->status = 'confirmed';
-			$shipment->price = $shipment->price - $metas;
-			$shipment->save();
-		}
-
-
-
-
 		$hashString = "";
-		foreach ($idn as $key => $value) {
-		    $hashString .= strlen($value) . $value;
+		foreach ($irn as $key => $value) {
+		$hashString .= strlen($value) . $value;
 		}
-
 		$hash = hash_hmac('md5', $hashString, $secretKey);
-
-		$idn['ORDER_HASH'] = $hash;
+		$irn['ORDER_HASH'] = $hash;
 
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
@@ -462,11 +452,11 @@ class PayuController extends Controller
 
 		curl_setopt($ch, CURLOPT_TIMEOUT, 60);
 		curl_setopt($ch, CURLOPT_POST, 1);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($idn));
+		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($irn));
 		$response = curl_exec($ch);
-		echo $response; exit;
 		$curlerrcode = curl_errno($ch);
 		$curlerr = curl_error($ch);
+
 
 		return back();
 

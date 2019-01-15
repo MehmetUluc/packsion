@@ -757,7 +757,7 @@ Route::get('preserve-cookie', 'Frontend\HomeController@preserve');
 Route::get('payu/test', 'Frontend\\PayuController@testPayment');
 Route::get('payu/{shipment_id}/confirm', 'Frontend\\PayuController@shipmentCheckout');
 Route::get('payu/check/shipment', 'Frontend\\PayuController@shipmentPay');
-Route::post('payu/confirm/{id}', 'Frontend\\PayuController@confirmpayment');
+Route::post('payu/irn/{id}', 'Frontend\\PayuController@confirmpayment');
 
 
 Route::get('ship/mail/{id}', 'TestController@shipmail');

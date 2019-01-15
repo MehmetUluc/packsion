@@ -142,6 +142,8 @@ class AdminOrdersController extends Controller
 		}
 
 
+
+
 		foreach($shipments as $key => $shipment){
 			$order = DB::table('orders')->where('orders_id', $shipment->order_id)->first();
 			$customer = DB::table('customers')->where('customers_id', $shipment->customer_id)->first();
