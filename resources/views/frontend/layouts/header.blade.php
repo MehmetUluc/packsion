@@ -91,8 +91,8 @@
 					<ul>
 						<!-- <li class="@if(request()->segment(2) == '') current @endif all"><a href="/boxes">{{ trans('page.boxes') }}</a></li> -->
 						@if(!Auth::guard('customer')->check())
-						<li class="woman @if(request('gender') == 'woman') current @endif"><a href="https://www.packsion.com/checkout/quiz/step/1?gender=woman&cache=flush">{{ trans('page.woman') }}</a></li>
-						<li class="man @if(request('gender') == 'man') current @endif"><a href="https://www.packsion.com/checkout/quiz/step/1?gender=man&cache=flush">{{ trans('page.man') }}</a></li>
+						<li class="woman @if(request()->segment(2) == 'kadin') current @endif"><a href="/boxes/kadin">{{ trans('page.woman') }}</a></li>
+						<li class="man @if(request()->segment(2) == 'erkek') current @endif"><a href="/boxes/erkek">{{ trans('page.man') }}</a></li>
 						@else
 						<li class="woman @if(request()->segment(2) == 'kadin') current @endif"><a href="/boxes/kadin">{{ trans('page.woman') }}</a></li>
 						<li class="man @if(request()->segment(2) == 'erkek') current @endif"><a href="/boxes/erkek">{{ trans('page.man') }}</a></li>

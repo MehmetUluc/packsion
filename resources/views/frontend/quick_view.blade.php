@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="https://cdn.shopify.com/s/files/1/2303/4803/t/36/assets/bootstrap.min.css?6018194228674779706">
+<link rel="stylesheet" type="text/css" href="https://cdn.shopify.com/s/files/1/2303/4803/t/36/assets/styles.css?6018194228674779706">
 <div class="product-quickview active">
 
   

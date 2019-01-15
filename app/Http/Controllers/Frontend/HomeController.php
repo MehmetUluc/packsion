@@ -109,8 +109,14 @@ class HomeController extends Controller
         $body_class = "sidebar transition-support webkit";
 
         $images = DB::table('products_images')->where('products_id', 83)->get();
-
-        return view('frontend.boxesgender', compact('body_class', 'products', 'images'));
+        if(request()->segment(2) == 'kadin'){
+            $body_class = "TC-2017 womens isChrome";
+            return view('frontend.kadin', compact('body_class'));
+        } else {
+            $body_class = "TC-2017 mens";
+            return view('frontend.erkek', compact('body_class'));
+        }
+        //return view('frontend.boxesgender', compact('body_class', 'products', 'images'));
     }
 
     public function profile($id)

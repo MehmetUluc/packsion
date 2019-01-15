@@ -91,8 +91,8 @@
 					<ul>
 						<!-- <li class="<?php if(request()->segment(2) == ''): ?> current <?php endif; ?> all"><a href="/boxes"><?php echo e(trans('page.boxes')); ?></a></li> -->
 						<?php if(!Auth::guard('customer')->check()): ?>
-						<li class="woman <?php if(request('gender') == 'woman'): ?> current <?php endif; ?>"><a href="https://www.packsion.com/checkout/quiz/step/1?gender=woman&cache=flush"><?php echo e(trans('page.woman')); ?></a></li>
-						<li class="man <?php if(request('gender') == 'man'): ?> current <?php endif; ?>"><a href="https://www.packsion.com/checkout/quiz/step/1?gender=man&cache=flush"><?php echo e(trans('page.man')); ?></a></li>
+						<li class="woman <?php if(request()->segment(2) == 'kadin'): ?> current <?php endif; ?>"><a href="/boxes/kadin"><?php echo e(trans('page.woman')); ?></a></li>
+						<li class="man <?php if(request()->segment(2) == 'erkek'): ?> current <?php endif; ?>"><a href="/boxes/erkek"><?php echo e(trans('page.man')); ?></a></li>
 						<?php else: ?>
 						<li class="woman <?php if(request()->segment(2) == 'kadin'): ?> current <?php endif; ?>"><a href="/boxes/kadin"><?php echo e(trans('page.woman')); ?></a></li>
 						<li class="man <?php if(request()->segment(2) == 'erkek'): ?> current <?php endif; ?>"><a href="/boxes/erkek"><?php echo e(trans('page.man')); ?></a></li>
