@@ -226,7 +226,7 @@ class SubscriptionController extends Controller
         }
 
         if(session()->has('new_custom')){
-            return redirect('checkout/info');
+            return redirect('/checkout/payment');
         }
         return redirect('/checkout/payment');
 

@@ -20,7 +20,7 @@
     <div class="page-image" style="background-image: url('/assets/erkek.jpg');">
 
       <div class="module-overlay__logo u-sm-show u-paddingAs u-bg-color--white">
-          <svg id="Trunk-Club-Monogram-Logo-Hero" xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 36.83 36.97" role="img" aria-label="Trunk Club Monogram Logo" aria-labelledby="Trunk-Club-Monogram-Logo-Hero"><title>Trunk Club Monogram Logo</title><path d="M17.16 11.19v2.28c-3.77.58-6.85 3.48-6.85 7s3.08 6.4 6.85 7v2.32h2.51v-2.31a8.88 8.88 0 0 0 5.9-3.14l-1.87-1.45a6.24 6.24 0 0 1-4 2.19v-7.75a5.92 5.92 0 0 0-1.18-.11 5.58 5.58 0 0 0-1.33.15v7.62c-2.51-.51-4.44-2.35-4.44-4.55a4 4 0 0 1 .77-2.3 6.27 6.27 0 0 1 5.13-2.4 6.39 6.39 0 0 1 4.8 2l.21.25 1.92-1.45a8.87 8.87 0 0 0-5.9-3.15v-2.2h6.31V8.66H10.88v2.53h6.28z" fill="#b08066"></path><path d="M18.42-.01a18.49 18.49 0 1 0 18.42 18.5A18.47 18.47 0 0 0 18.42-.01zm0 34.59a16.1 16.1 0 1 1 16-16.1 16.09 16.09 0 0 1-16 16.1z" fill="#b08066"></path></svg>
+          
       </div>
 
       <div class="holidayHeroNormal-module" style="">
@@ -31,7 +31,7 @@
           </p>
 
           <div class="module-cta">
-            <a href="/onboarding/mens" class="button--rounded">
+            <a href="/checkout/quiz/step/1?gender=man&cache=flush" class="button--rounded">
                 <?php echo e(@trans('man.get_started')); ?>
 
              
@@ -219,7 +219,7 @@
       </ol>
     </div>
 
-    <a href="/onboarding/mens" class="Button--rounded u-md-hide js-onboarding-cta" data-section="How it works"><?php echo e(@trans('man.get_started')); ?></a>
+    <a href="/checkout/quiz/step/1?gender=man&cache=flush" class="Button--rounded u-md-hide js-onboarding-cta" data-section="How it works"><?php echo e(@trans('man.get_started')); ?></a>
   </div>
 </section>
 
@@ -258,7 +258,7 @@
         </li>
         
       </ul>
-      <a href="/onboarding/mens" class="Button--rounded u-marginTm js-onboarding-cta" data-section="Pricing"><?php echo e(@trans('man.get_started')); ?></a>
+      <a href="/checkout/quiz/step/1?gender=man&cache=flush" class="Button--rounded u-marginTm js-onboarding-cta" data-section="Pricing"><?php echo e(@trans('man.get_started')); ?></a>
     </div>
   </div>
 </section>
@@ -382,7 +382,7 @@
         </div>
       </div></div></div><ol class="flickity-page-dots"><li class="dot" aria-label="Page dot 1"></li><li class="dot is-selected" aria-label="Page dot 2" aria-current="step"></li><li class="dot" aria-label="Page dot 3"></li><li class="dot" aria-label="Page dot 4"></li></ol></div>
 
-    <a href="/onboarding/mens" class="button--rounded u-marginTxl u-md-hide js-onboarding-cta" data-section="Pricing"><?php echo e(@trans('man.get_started')); ?></a>
+    <a href="/checkout/quiz/step/1?gender=man&cache=flush" class="button--rounded u-marginTxl u-md-hide js-onboarding-cta" data-section="Pricing"><?php echo e(@trans('man.get_started')); ?></a>
   </div>
 </section>
 
@@ -474,7 +474,7 @@
         </div>
       </div>
 
-      <a href="/onboarding/mens" class="Button--rounded u-marginTm js-onboarding-cta" data-section="Pricing"><?php echo e(@trans('man.get_started')); ?></a>
+      <a href="/checkout/quiz/step/1?gender=man&cache=flush" class="Button--rounded u-marginTm js-onboarding-cta" data-section="Pricing"><?php echo e(@trans('man.get_started')); ?></a>
     </div>
   </div>
 </section>

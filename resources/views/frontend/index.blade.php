@@ -33,11 +33,11 @@
 				@if($slide->buttons == 1)
         <div class="module-cta">
         	@if(!Auth::guard('customer')->check())
-        		<a href="/checkout/quiz/step/1?gender=woman&cache=flush" class="button--rounded">
+        		<a href="/boxes/kadin" class="button--rounded">
 						Kadın
 					</a>
 
-					<a href="/checkout/quiz/step/1?gender=man&cache=flush" class="button--rounded button--eq-width">
+					<a href="/boxes/erkek" class="button--rounded button--eq-width">
 						Erkek
 					</a>
         	@else

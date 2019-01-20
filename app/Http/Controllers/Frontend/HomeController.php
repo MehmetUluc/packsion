@@ -107,14 +107,23 @@ class HomeController extends Controller
                     ->where('products_to_categories.categories_id', 30)
                     ->get();
         $body_class = "sidebar transition-support webkit";
-
+        $quizzess = [];
         $images = DB::table('products_images')->where('products_id', 83)->get();
         if(request()->segment(2) == 'kadin'){
             $body_class = "TC-2017 womens isChrome";
-            return view('frontend.kadin', compact('body_class'));
+
+            if(Auth::guard('customer')->check()){
+                $quizzess = Quiz::where('user_id', Auth::guard('customer')->id())->where('gender', 'woman')->get();
+              } 
+
+            return view('frontend.kadin', compact('body_class', 'quizzess'));
         } else {
             $body_class = "TC-2017 mens";
-            return view('frontend.erkek', compact('body_class'));
+
+             if(Auth::guard('customer')->check()){
+                $quizzess = Quiz::where('user_id', Auth::guard('customer')->id())->where('gender', 'man')->get();
+              } 
+            return view('frontend.erkek', compact('body_class', 'quizzess'));
         }
         //return view('frontend.boxesgender', compact('body_class', 'products', 'images'));
     }
