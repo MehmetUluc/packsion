@@ -3,7 +3,7 @@
 <div class="content-wrapper"> 
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <h1> <?php echo e(trans('')); ?> <small><?php echo e(trans('Sık Sorulan Sorular')); ?>...</small> </h1>
+    <h1> <?php echo e(trans('')); ?> <small><?php echo e(trans('Kategoriler')); ?>...</small> </h1>
     <ol class="breadcrumb">
        <li><a href="<?php echo e(URL::to('admin/dashboard/this_month')); ?>"><i class="fa fa-dashboard"></i> <?php echo e(trans('labels.breadcrumb_dashboard')); ?></a></li>
       <li class="active"><?php echo e(trans('Sık Sorulan Sorular')); ?> </li>
@@ -20,13 +20,9 @@
       <div class="col-md-12">
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title"><?php echo e(trans('Sık Sorulan Sorular')); ?> </h3>
-            <div class="box-header">
-            
-</div>
+            <h3 class="box-title"><?php echo e(trans('Kategoriler')); ?> </h3>
             <div class="box-tools pull-right">
-                <a href="listingFaqCategory" type="button" class="btn btn-success"><?php echo e(trans('Kategoriler')); ?></a>
-              <a href="addFaq" type="button" class="btn  btn-primary"><?php echo e(trans('Ekle')); ?></a>
+            	<a href="addFaqCategory" type="button" class="btn btn-block btn-primary"><?php echo e(trans('Ekle')); ?></a>
             </div>
           </div>
           <!-- /.box-header -->
@@ -54,7 +50,7 @@
                       <th><?php echo e(trans('labels.ID')); ?></th>
                       <th><?php echo e(trans('labels.Name')); ?></th>
 
-                      <th><?php echo e(trans('labels.Status')); ?></th>
+                      
                       <th></th>
                     </tr>
                   </thead>
@@ -71,35 +67,11 @@
                             
 
 							<td>
-								<?php if($data->status==0): ?>
-									<span class="label label-warning">
-										<?php echo e(trans('labels.InActive')); ?>
-
-									</span>
-								<?php else: ?>
-									<a href="<?php echo e(URL::to("admin/faqStatus")); ?>?id=<?php echo e($data->id); ?>&active=no" class="method-status">
-										<?php echo e(trans('labels.InActive')); ?>
-
-									</a>
-								<?php endif; ?>
-								&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;
-								<?php if($data->status==1): ?>
-									<span class="label label-success">
-										<?php echo e(trans('labels.Active')); ?>
-
-									</span>
-								<?php else: ?>
-									<a href="<?php echo e(URL::to("admin/faqStatus")); ?>?id=<?php echo e($data->id); ?>&active=yes" class="method-status">
-										<?php echo e(trans('labels.Active')); ?>
-
-									</a>
-								<?php endif; ?>
-								
-							</td>
+							
                            
                             <td>
-                                <a data-toggle="tooltip" data-placement="bottom" title="<?php echo e(trans('labels.Edit')); ?>" href="editFaq/<?php echo e($data->id); ?>" class="badge bg-light-blue"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> 
-                                <a data-toggle="tooltip" data-placement="bottom" title="<?php echo e(trans('labels.Delete')); ?>" href="deleteFaq/<?php echo e($data->id); ?>" class="badge bg-red"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                <a data-toggle="tooltip" data-placement="bottom" title="<?php echo e(trans('labels.Edit')); ?>" href="editFaqCategory/<?php echo e($data->id); ?>" class="badge bg-light-blue"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> 
+                                <a data-toggle="tooltip" data-placement="bottom" title="<?php echo e(trans('labels.Delete')); ?>" href="deleteFaqCategory/<?php echo e($data->id); ?>" class="badge bg-red"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                                 
                             </td>
                         </tr>
@@ -134,7 +106,7 @@
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<h4 class="modal-title" id="deletePageModalLabel"><?php echo e(trans('labels.DeletePage')); ?></h4>
 		  </div>
-		  <?php echo Form::open(array('url' =>'admin/deletePage', 'name'=>'deletePage', 'method'=>'post', 'class' => 'form-horizontal', 'enctype'=>'multipart/form-data')); ?>
+		  <?php echo Form::open(array('url' =>'admin/deleteFaqCategory', 'name'=>'deleteFaqCategory', 'method'=>'post', 'class' => 'form-horizontal', 'enctype'=>'multipart/form-data')); ?>
 
 				  <?php echo Form::hidden('action',  'delete', array('class'=>'form-control')); ?>
 

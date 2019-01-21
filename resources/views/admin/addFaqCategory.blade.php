@@ -3,11 +3,11 @@
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <h1> {{ trans('Sık Sorulan Soru') }} <small>{{ trans('Sık Sorulan Soru Ekle') }}...</small> </h1>
+    <h1> {{ trans('Sık Sorulan Soru') }} <small>{{ trans('Kategoryu Ekle') }}...</small> </h1>
     <ol class="breadcrumb">
        <li><a href="{{ URL::to('admin/dashboard/this_month') }}"><i class="fa fa-dashboard"></i> {{ trans('labels.breadcrumb_dashboard') }}</a></li>
       <li><a href="{{ URL::to('admin/listingPages')}}"><i class="fa fa-dashboard"></i> {{ trans('Sık Sorulan Sorular') }}</a></li>
-      <li class="active">{{ trans('Soru Ekle') }}</li>
+      <li class="active">{{ trans('Kategori Ekle') }}</li>
     </ol>
   </section>
 
@@ -21,7 +21,7 @@
       <div class="col-md-12">
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title">{{ trans('Soru Ekle') }} </h3>
+            <h3 class="box-title">{{ trans('Kategori Ekle') }} </h3>
           </div>
 
           <!-- /.box-header -->
@@ -42,7 +42,7 @@
                              @endforeach
                           @endif
 
-                            {!! Form::open(array('url' =>'admin/addNewFaq', 'method'=>'post', 'class' => 'form-horizontal form-validate', 'enctype'=>'multipart/form-data')) !!}
+                            {!! Form::open(array('url' =>'admin/addNewFaqCategory', 'method'=>'post', 'class' => 'form-horizontal form-validate', 'enctype'=>'multipart/form-data')) !!}
 
 
 
@@ -68,31 +68,10 @@
                     <span class="help-block hidden">{{ trans('labels.textRequiredFieldMessage') }}</span>
                                       </div>
                                 </div>
-
-                                <div class="form-group">
-                                  <label for="name" class="col-sm-2 col-md-3 control-label">{{ trans('Kategori') }}  </label>
-                                  <div class="col-sm-10 col-md-4">
-                                      <select class="form-control" name="category">
-                                        <option value="">Kategori Seçin</option>
-                                        @foreach($result['categories'] as $category)
-                                        <option value="{{ $category->id }}">{{ $category->title }}</option>
-                                        @endforeach
-                                      </select>
-                                  </div>
-                                </div>
     
 
 
-                                <div class="form-group">
-                                      <label for="name" class="col-sm-2 col-md-3 control-label">{{ trans('Metin') }} ({{ $languages->name }}) </label>
-                                      <div class="col-sm-10 col-md-8">
-                                        <textarea id="editor<?=$languages->languages_id?>" name="body" class="form-control" rows="10" cols="80">
-                                        </textarea>
-                                        <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">{{ trans('labels.Description') }} ({{ $languages->name }})</span>
 
-                                        <br>
-                                      </div>
-                                </div>
 
                             @endforeach
 
@@ -100,7 +79,7 @@
                               <!-- /.box-body -->
 							<div class="box-footer text-center">
 								<button type="submit" class="btn btn-primary">{{ trans('Ekle') }}</button>
-								<a href="{{ URL::to('admin/listingFaq')}}" type="button" class="btn btn-default">{{ trans('labels.back') }}</a>
+								<a href="{{ URL::to('admin/listingFaqCategory')}}" type="button" class="btn btn-default">{{ trans('labels.back') }}</a>
 							</div>
 
                               <!-- /.box-footer -->

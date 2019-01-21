@@ -22,6 +22,7 @@ use Lang;
 //for authenitcate login data
 use Auth;
 use App\Faq;
+use App\FaqCategory;
 
 //use Illuminate\Foundation\Auth\ThrottlesLogins;
 //use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -62,6 +63,18 @@ class AdminPagesController extends Controller
 		return view("admin.listingFaq",$title)->with('result', $result);
 	}
 
+	public function listingFaqCategory(Request $request){
+		$title 			= array('pageTitle' => Lang::get("labels.Faq"));
+		$language_id    =   '1';
+
+		$pages = FaqCategory::paginate(20);
+
+		$result["pages"] = $pages;
+
+
+		return view("admin.listingFaqCategory",$title)->with('result', $result);
+	}
+
 	public function addPage(Request $request){
 
 		$title = array('pageTitle' => Lang::get("labels.AddPage"));
@@ -92,6 +105,8 @@ class AdminPagesController extends Controller
 		$myVar = new AdminNewsCategoriesController();
 		$result['newsCategories'] = $myVar->getNewsCategories($language_id);
 
+		$result['categories'] = FaqCategory::all();
+
 		//get function from other controller
 		$myVar = new AdminSiteSettingController();
 		$result['languages'] = $myVar->getLanguages();
@@ -99,6 +114,26 @@ class AdminPagesController extends Controller
 		//print_r($result);
 		return view("admin.addFaq", $title)->with('result', $result);
 	}
+
+	public function addFaqCategory(Request $request){
+
+		$title = array('pageTitle' => Lang::get("labels.AddPage"));
+		$language_id      =   '1';
+
+		$result = array();
+
+		//get function from other controller
+		$myVar = new AdminNewsCategoriesController();
+		$result['newsCategories'] = $myVar->getNewsCategories($language_id);
+
+		//get function from other controller
+		$myVar = new AdminSiteSettingController();
+		$result['languages'] = $myVar->getLanguages();
+
+		//print_r($result);
+		return view("admin.addFaqCategory", $title)->with('result', $result);
+	}
+
 
 	//addNewPage
 	public function addNewPage(Request $request){
@@ -156,12 +191,34 @@ class AdminPagesController extends Controller
 		$faq->title = $request->title;
 		$faq->position = $request->position;
 		$faq->body = $request->body;
+		$faq->category_id = $request->category;
 		$faq->save();
 
 
 
 		$message = Lang::get("labels.PageAddedMessage");
 		return redirect('/admin/listingFaq')->withErrors([$message]);
+	}
+
+	public function addNewFaqCategory(Request $request){
+		$title = array('pageTitle' => Lang::get("labels.AddPage"));
+
+
+		//get function from other controller
+		$myVar = new AdminSiteSettingController();
+		$languages = $myVar->getLanguages();
+
+		$faq = new FaqCategory;
+
+		$faq->title = $request->title;
+		$faq->position = $request->position;
+
+		$faq->save();
+
+
+
+		$message = Lang::get("labels.PageAddedMessage");
+		return redirect('/admin/listingFaqCategory')->withErrors([$message]);
 	}
 
 	//editnew
@@ -201,6 +258,8 @@ class AdminPagesController extends Controller
 		$myVar = new AdminSiteSettingController();
 		$result['languages'] = $myVar->getLanguages();
 
+		$result['categories'] = FaqCategory::all();
+
 
 		$pages = Faq::find($page_id);
 
@@ -208,6 +267,26 @@ class AdminPagesController extends Controller
 
 		//print_r($result['editPage']);
 		return view("admin.editFaq", $title)->with('result', $result);
+	}
+
+	public function editFaqCategory(Request $request){
+		$title = array('pageTitle' => Lang::get("labels.EditPage"));
+		$language_id      =   '1';
+		$page_id     	  =   $request->id;
+
+		$result = array();
+
+		//get function from other controller
+		$myVar = new AdminSiteSettingController();
+		$result['languages'] = $myVar->getLanguages();
+
+
+		$pages = FaqCategory::find($page_id);
+
+		$result['editPage'] = $pages;
+
+		//print_r($result['editPage']);
+		return view("admin.editFaqCategory", $title)->with('result', $result);
 	}
 
 
@@ -278,6 +357,27 @@ class AdminPagesController extends Controller
 		$faq->title = $request->title;
 		$faq->position = $request->position;
 		$faq->body = $request->body;
+		$faq->category_id = $request->category;
+		$faq->save();
+
+		$message = Lang::get("labels.PageUpdateMessage");
+		return redirect()->back()->withErrors([$message]);
+
+	}
+
+	public function updateFaqCategory(Request $request){
+
+		$page_id      =   $request->id;
+
+		//get function from other controller
+		$myVar = new AdminSiteSettingController();
+		$languages = $myVar->getLanguages();
+
+		$faq = Faq::find($page_id);
+
+		$faq->title = $request->title;
+		$faq->position = $request->position;
+
 		$faq->save();
 
 		$message = Lang::get("labels.PageUpdateMessage");
@@ -323,6 +423,13 @@ class AdminPagesController extends Controller
 	public function deleteFaq($id)
 	{
 		Faq::destroy($id);
+
+		return back();
+	}
+
+	public function deleteFaqCategory($id)
+	{
+		FaqCategory::destroy($id);
 
 		return back();
 	}

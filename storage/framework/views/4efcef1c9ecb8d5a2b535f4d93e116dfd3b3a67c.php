@@ -31,11 +31,11 @@
           </p>
 
           <div class="module-cta">
-            <a href="/checkout/quiz/step/1?gender=man&cache=flush" class="button--rounded">
-                <?php echo e(@trans('man.get_started')); ?>
-
-             
-            </a>
+            <?php if(Auth::guard('customer')->check() && count($quizzess) > 0): ?>
+              <a href="/start_quiz?gender=man" class="button--rounded button--eq-width"><?php echo e(@trans('woman.get_started')); ?></a>
+            <?php else: ?>
+                          <a href="/checkout/quiz/step/1?gender=man&cache=flush" class="button--rounded button--eq-width"><?php echo e(@trans('woman.get_started')); ?></a>
+            <?php endif; ?>
           </div>
         </div>
       </div>
@@ -218,8 +218,11 @@
 
       </ol>
     </div>
-
-    <a href="/checkout/quiz/step/1?gender=man&cache=flush" class="Button--rounded u-md-hide js-onboarding-cta" data-section="How it works"><?php echo e(@trans('man.get_started')); ?></a>
+<?php if(Auth::guard('customer')->check() && count($quizzess) > 0): ?>
+    <<a href="/start_quiz?gender=man" class="button--rounded button--eq-width"><?php echo e(@trans('woman.get_started')); ?></a>
+            <?php else: ?>
+                          <a href="/checkout/quiz/step/1?gender=man&cache=flush" class="button--rounded button--eq-width"><?php echo e(@trans('woman.get_started')); ?></a>
+            <?php endif; ?>
   </div>
 </section>
 
@@ -258,7 +261,12 @@
         </li>
         
       </ul>
-      <a href="/checkout/quiz/step/1?gender=man&cache=flush" class="Button--rounded u-marginTm js-onboarding-cta" data-section="Pricing"><?php echo e(@trans('man.get_started')); ?></a>
+
+      <?php if(Auth::guard('customer')->check() && count($quizzess) > 0): ?>
+      <a href="/start_quiz?gender=man" class="button--rounded button--eq-width"><?php echo e(@trans('woman.get_started')); ?></a>
+            <?php else: ?>
+                          <a href="/checkout/quiz/step/1?gender=man&cache=flush" class="button--rounded button--eq-width"><?php echo e(@trans('woman.get_started')); ?></a>
+            <?php endif; ?>
     </div>
   </div>
 </section>
@@ -381,8 +389,11 @@
 
         </div>
       </div></div></div><ol class="flickity-page-dots"><li class="dot" aria-label="Page dot 1"></li><li class="dot is-selected" aria-label="Page dot 2" aria-current="step"></li><li class="dot" aria-label="Page dot 3"></li><li class="dot" aria-label="Page dot 4"></li></ol></div>
-
-    <a href="/checkout/quiz/step/1?gender=man&cache=flush" class="button--rounded u-marginTxl u-md-hide js-onboarding-cta" data-section="Pricing"><?php echo e(@trans('man.get_started')); ?></a>
+<?php if(Auth::guard('customer')->check() && count($quizzess) > 0): ?>
+    <a href="/start_quiz?gender=man" class="button--rounded button--eq-width"><?php echo e(@trans('woman.get_started')); ?></a>
+            <?php else: ?>
+                          <a href="/checkout/quiz/step/1?gender=man&cache=flush" class="button--rounded button--eq-width"><?php echo e(@trans('woman.get_started')); ?></a>
+            <?php endif; ?>
   </div>
 </section>
 
@@ -473,8 +484,11 @@
           <p><?php echo e(@trans('man.continued_styling')); ?></p>
         </div>
       </div>
-
-      <a href="/checkout/quiz/step/1?gender=man&cache=flush" class="Button--rounded u-marginTm js-onboarding-cta" data-section="Pricing"><?php echo e(@trans('man.get_started')); ?></a>
+<?php if(Auth::guard('customer')->check() && count($quizzess) > 0): ?>
+      <a href="/start_quiz?gender=man" class="button--rounded button--eq-width"><?php echo e(@trans('woman.get_started')); ?></a>
+            <?php else: ?>
+                          <a href="/checkout/quiz/step/1?gender=man&cache=flush" class="button--rounded button--eq-width"><?php echo e(@trans('woman.get_started')); ?></a>
+            <?php endif; ?>
     </div>
   </div>
 </section>

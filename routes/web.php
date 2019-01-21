@@ -316,12 +316,18 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 			Route::get('/listingFaq', 'AdminPagesController@listingFaq');
+			Route::get('/listingFaqCategory', 'AdminPagesController@listingFaqCategory');
 			Route::get('/addFaq', 'AdminPagesController@addFaq');
+			Route::get('/addFaqCategory', 'AdminPagesController@addFaqCategory');
 			Route::post('/addNewFaq', 'AdminPagesController@addNewFaq');
+			Route::post('/addNewFaqCategory', 'AdminPagesController@addNewFaqCategory');
 			Route::get('/editFaq/{id}', 'AdminPagesController@editFaq');
+			Route::get('/editFaqCategory/{id}', 'AdminPagesController@editFaqCategory');
 			Route::post('/updateFaq', 'AdminPagesController@updateFaq');
+			Route::post('/updateFaqCategory', 'AdminPagesController@updateFaqCategory');
 			Route::get('/faqStatus', 'AdminPagesController@faqStatus');
 			Route::get('/deleteFaq/{id}', 'AdminPagesController@deleteFaq');
+			Route::get('/deleteFaqCategory/{id}', 'AdminPagesController@deleteFaqCategory');
 
 
 			Route::get('/influencers', 'InfluencerController@index');

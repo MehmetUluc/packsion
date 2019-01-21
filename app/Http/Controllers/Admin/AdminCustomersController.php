@@ -100,7 +100,10 @@ class AdminCustomersController extends Controller
 
 	public function toExcel(){
 
-		$data = Customer::select('customers_id', 'customers_gender', 'customers_firstname', 'customers_lastname', 'customers_email_address', 'customers_telephone', 'customers_newsletter', 'isActive', 'is_seen', 'created_at')->get();
+		$data = Customer::select('customers_id', 'customers_gender', 'customers_firstname', 'customers_lastname', 'customers_email_address', DB::raw('(select entry_phone from address_book where address_book.customers_id  =   customers.customers_id limit 1) as phone'), 'newsletter', 'isActive', 'is_seen', 'created_at')
+		
+
+		->get();
 		Excel::create('Filename', function($excel) use($data) {
 
 		    $excel->sheet('Sheetname', function($sheet) use($data) {

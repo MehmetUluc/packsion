@@ -3,7 +3,7 @@
 <div class="content-wrapper"> 
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <h1> {{ trans('') }} <small>{{ trans('Sık Sorulan Sorular') }}...</small> </h1>
+    <h1> {{ trans('') }} <small>{{ trans('Kategoriler') }}...</small> </h1>
     <ol class="breadcrumb">
        <li><a href="{{ URL::to('admin/dashboard/this_month') }}"><i class="fa fa-dashboard"></i> {{ trans('labels.breadcrumb_dashboard') }}</a></li>
       <li class="active">{{ trans('Sık Sorulan Sorular') }} </li>
@@ -20,13 +20,9 @@
       <div class="col-md-12">
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title">{{ trans('Sık Sorulan Sorular') }} </h3>
-            <div class="box-header">
-            
-</div>
+            <h3 class="box-title">{{ trans('Kategoriler') }} </h3>
             <div class="box-tools pull-right">
-                <a href="listingFaqCategory" type="button" class="btn btn-success">{{ trans('Kategoriler') }}</a>
-              <a href="addFaq" type="button" class="btn  btn-primary">{{ trans('Ekle') }}</a>
+            	<a href="addFaqCategory" type="button" class="btn btn-block btn-primary">{{ trans('Ekle') }}</a>
             </div>
           </div>
           <!-- /.box-header -->
@@ -53,7 +49,7 @@
                       <th>{{ trans('labels.ID') }}</th>
                       <th>{{ trans('labels.Name') }}</th>
 
-                      <th>{{ trans('labels.Status') }}</th>
+                      
                       <th></th>
                     </tr>
                   </thead>
@@ -69,31 +65,11 @@
                             
 
 							<td>
-								@if($data->status==0)
-									<span class="label label-warning">
-										{{ trans('labels.InActive') }}
-									</span>
-								@else
-									<a href="{{ URL::to("admin/faqStatus")}}?id={{ $data->id}}&active=no" class="method-status">
-										{{ trans('labels.InActive') }}
-									</a>
-								@endif
-								&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;
-								@if($data->status==1)
-									<span class="label label-success">
-										{{ trans('labels.Active') }}
-									</span>
-								@else
-									<a href="{{ URL::to("admin/faqStatus")}}?id={{ $data->id}}&active=yes" class="method-status">
-										{{ trans('labels.Active') }}
-									</a>
-								@endif
-								
-							</td>
+							
                            
                             <td>
-                                <a data-toggle="tooltip" data-placement="bottom" title="{{ trans('labels.Edit') }}" href="editFaq/{{ $data->id }}" class="badge bg-light-blue"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> 
-                                <a data-toggle="tooltip" data-placement="bottom" title="{{ trans('labels.Delete') }}" href="deleteFaq/{{ $data->id }}" class="badge bg-red"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                <a data-toggle="tooltip" data-placement="bottom" title="{{ trans('labels.Edit') }}" href="editFaqCategory/{{ $data->id }}" class="badge bg-light-blue"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> 
+                                <a data-toggle="tooltip" data-placement="bottom" title="{{ trans('labels.Delete') }}" href="deleteFaqCategory/{{ $data->id }}" class="badge bg-red"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                                 
                             </td>
                         </tr>
@@ -127,7 +103,7 @@
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<h4 class="modal-title" id="deletePageModalLabel">{{ trans('labels.DeletePage') }}</h4>
 		  </div>
-		  {!! Form::open(array('url' =>'admin/deletePage', 'name'=>'deletePage', 'method'=>'post', 'class' => 'form-horizontal', 'enctype'=>'multipart/form-data')) !!}
+		  {!! Form::open(array('url' =>'admin/deleteFaqCategory', 'name'=>'deleteFaqCategory', 'method'=>'post', 'class' => 'form-horizontal', 'enctype'=>'multipart/form-data')) !!}
 				  {!! Form::hidden('action',  'delete', array('class'=>'form-control')) !!}
 				  {!! Form::hidden('id',  '', array('class'=>'form-control', 'id'=>'id')) !!}
 		  <div class="modal-body">						

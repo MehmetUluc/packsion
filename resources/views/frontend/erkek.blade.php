@@ -212,7 +212,7 @@
 
       </ol>
     </div>
-
+@if(Auth::guard('customer')->check() && count($quizzess) > 0)
     <<a href="/start_quiz?gender=man" class="button--rounded button--eq-width">{{ @trans('woman.get_started') }}</a>
             @else
                           <a href="/checkout/quiz/step/1?gender=man&cache=flush" class="button--rounded button--eq-width">{{ @trans('woman.get_started') }}</a>
@@ -252,6 +252,8 @@
         </li>
         
       </ul>
+
+      @if(Auth::guard('customer')->check() && count($quizzess) > 0)
       <a href="/start_quiz?gender=man" class="button--rounded button--eq-width">{{ @trans('woman.get_started') }}</a>
             @else
                           <a href="/checkout/quiz/step/1?gender=man&cache=flush" class="button--rounded button--eq-width">{{ @trans('woman.get_started') }}</a>
@@ -378,7 +380,7 @@
 
         </div>
       </div></div></div><ol class="flickity-page-dots"><li class="dot" aria-label="Page dot 1"></li><li class="dot is-selected" aria-label="Page dot 2" aria-current="step"></li><li class="dot" aria-label="Page dot 3"></li><li class="dot" aria-label="Page dot 4"></li></ol></div>
-
+@if(Auth::guard('customer')->check() && count($quizzess) > 0)
     <a href="/start_quiz?gender=man" class="button--rounded button--eq-width">{{ @trans('woman.get_started') }}</a>
             @else
                           <a href="/checkout/quiz/step/1?gender=man&cache=flush" class="button--rounded button--eq-width">{{ @trans('woman.get_started') }}</a>
@@ -473,7 +475,7 @@
           <p>{{ @trans('man.continued_styling') }}</p>
         </div>
       </div>
-
+@if(Auth::guard('customer')->check() && count($quizzess) > 0)
       <a href="/start_quiz?gender=man" class="button--rounded button--eq-width">{{ @trans('woman.get_started') }}</a>
             @else
                           <a href="/checkout/quiz/step/1?gender=man&cache=flush" class="button--rounded button--eq-width">{{ @trans('woman.get_started') }}</a>

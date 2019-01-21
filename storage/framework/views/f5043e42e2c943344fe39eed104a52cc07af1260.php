@@ -3,11 +3,11 @@
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <h1> <?php echo e(trans('Sık Sorulan Soru')); ?> <small><?php echo e(trans('Sık Sorulan Soru Ekle')); ?>...</small> </h1>
+    <h1> <?php echo e(trans('Sık Sorulan Soru')); ?> <small><?php echo e(trans('Kategoryu Ekle')); ?>...</small> </h1>
     <ol class="breadcrumb">
        <li><a href="<?php echo e(URL::to('admin/dashboard/this_month')); ?>"><i class="fa fa-dashboard"></i> <?php echo e(trans('labels.breadcrumb_dashboard')); ?></a></li>
       <li><a href="<?php echo e(URL::to('admin/listingPages')); ?>"><i class="fa fa-dashboard"></i> <?php echo e(trans('Sık Sorulan Sorular')); ?></a></li>
-      <li class="active"><?php echo e(trans('Soru Ekle')); ?></li>
+      <li class="active"><?php echo e(trans('Kategori Ekle')); ?></li>
     </ol>
   </section>
 
@@ -21,7 +21,7 @@
       <div class="col-md-12">
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title"><?php echo e(trans('Soru Ekle')); ?> </h3>
+            <h3 class="box-title"><?php echo e(trans('Kategori Ekle')); ?> </h3>
           </div>
 
           <!-- /.box-header -->
@@ -43,7 +43,7 @@
                              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           <?php endif; ?>
 
-                            <?php echo Form::open(array('url' =>'admin/addNewFaq', 'method'=>'post', 'class' => 'form-horizontal form-validate', 'enctype'=>'multipart/form-data')); ?>
+                            <?php echo Form::open(array('url' =>'admin/addNewFaqCategory', 'method'=>'post', 'class' => 'form-horizontal form-validate', 'enctype'=>'multipart/form-data')); ?>
 
 
 
@@ -70,31 +70,10 @@
                     <span class="help-block hidden"><?php echo e(trans('labels.textRequiredFieldMessage')); ?></span>
                                       </div>
                                 </div>
-
-                                <div class="form-group">
-                                  <label for="name" class="col-sm-2 col-md-3 control-label"><?php echo e(trans('Kategori')); ?>  </label>
-                                  <div class="col-sm-10 col-md-4">
-                                      <select class="form-control" name="category">
-                                        <option value="">Kategori Seçin</option>
-                                        <?php $__currentLoopData = $result['categories']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($category->id); ?>"><?php echo e($category->title); ?></option>
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                      </select>
-                                  </div>
-                                </div>
     
 
 
-                                <div class="form-group">
-                                      <label for="name" class="col-sm-2 col-md-3 control-label"><?php echo e(trans('Metin')); ?> (<?php echo e($languages->name); ?>) </label>
-                                      <div class="col-sm-10 col-md-8">
-                                        <textarea id="editor<?=$languages->languages_id?>" name="body" class="form-control" rows="10" cols="80">
-                                        </textarea>
-                                        <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;"><?php echo e(trans('labels.Description')); ?> (<?php echo e($languages->name); ?>)</span>
 
-                                        <br>
-                                      </div>
-                                </div>
 
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
@@ -102,7 +81,7 @@
                               <!-- /.box-body -->
 							<div class="box-footer text-center">
 								<button type="submit" class="btn btn-primary"><?php echo e(trans('Ekle')); ?></button>
-								<a href="<?php echo e(URL::to('admin/listingFaq')); ?>" type="button" class="btn btn-default"><?php echo e(trans('labels.back')); ?></a>
+								<a href="<?php echo e(URL::to('admin/listingFaqCategory')); ?>" type="button" class="btn btn-default"><?php echo e(trans('labels.back')); ?></a>
 							</div>
 
                               <!-- /.box-footer -->

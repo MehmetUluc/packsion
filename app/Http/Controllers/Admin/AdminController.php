@@ -48,7 +48,7 @@ class AdminController extends Controller
 		
 		//print_r($orders);
 
-			$not_seen = DB::table('orders')->where('is_seen', 0)->count();
+			$not_seen = DB::table('shipments')->where('status', 'paid')->count();
 		
 		$index = 0;
 		$total_price = array();
