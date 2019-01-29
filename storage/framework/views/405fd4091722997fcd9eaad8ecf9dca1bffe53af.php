@@ -62,7 +62,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-xs-12">
+              <div class="col-xs-12 table-responsive">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
