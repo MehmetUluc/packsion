@@ -226,10 +226,10 @@
 							</td>
 						</tr>
 						@endif
-						@if(isset($quiz->tshirt))
+						@if(isset($quiz->kazak))
 						<tr>
 							<th>Kazak Tipi:</th>
-							<td><?php foreach($quiz->tshirt as $stil) : ?>
+							<td><?php foreach($quiz->kazak as $stil) : ?>
 							<div style="float:left; text-align:center">
 								<img src="/images/<?php echo $folder . '/kazak/' . $stil; ?>.jpg" width="120"/>
 								<br /><?php echo isset($stil) ? ucwords($stil) : ''; ?></div>
@@ -244,6 +244,18 @@
 							<div style="float:left; text-align:center">
 								<img src="/images/<?php echo $folder . '/pantolon/' . $stil; ?>.jpg" width="120" />
 								<br /><?php echo isset($stil) ? ucwords($stil) : ''; ?></div>
+								<?php endforeach ?>
+							</td>
+						</tr>
+						@endif
+						@if(isset($quiz->brand))
+						<tr>
+							<th>Marka:</th>
+							<td><?php foreach($quiz->brand as $stil) : ?>
+							<div style="float:left; text-align:center">
+								<img src="/images/' . $stil; ?>.jpg" width="120" />
+								<br /><?php echo isset($stil) ? ucwords($stil) : ''; ?>
+								</div>
 								<?php endforeach ?>
 							</td>
 						</tr>
@@ -377,10 +389,10 @@
 							</td>
 						</tr>
 						@endif
-						@if(isset($quiz->tshirt))
+						@if(isset($quiz->kazak))
 						<tr>
 							<th>Kazak Tipi:</th>
-							<td><?php foreach($quiz->tshirt as $stil) : ?>
+							<td><?php foreach($quiz->kazak as $stil) : ?>
 							<div style="float:left; text-align:center">
 								<img src="/images/<?php echo $folder . '/' . $stil; ?>.jpg" width="120" />
 								<br /><?php echo isset($stil) ? ucwords($stil) : ''; ?>
@@ -395,6 +407,18 @@
 							<td><?php foreach($quiz->pantolon as $stil) : ?>
 							<div style="float:left; text-align:center">
 								<img src="/images/<?php echo $folder . '/pantolon/' . $stil; ?>.jpg" width="120" />
+								<br /><?php echo isset($stil) ? ucwords($stil) : ''; ?>
+								</div>
+								<?php endforeach ?>
+							</td>
+						</tr>
+						@endif
+						@if(isset($quiz->brand))
+						<tr>
+							<th>Marka:</th>
+							<td><?php foreach($quiz->brand as $stil) : ?>
+							<div style="float:left; text-align:center">
+								<img src="/images/' . $stil; ?>.jpg" width="120" />
 								<br /><?php echo isset($stil) ? ucwords($stil) : ''; ?>
 								</div>
 								<?php endforeach ?>
