@@ -143,6 +143,11 @@
                                                     </select>
                                                 </div>
                                             </div>
+                                            <div class="column width-6">
+                                                
+                                                    <input id="tc" type="text" name="tc_no" class="form-tc form-element large" placeholder="TC Kimlik Numaranız" tabindex="1"  />
+                                                
+                                            </div>
                                         </div>
                                     </div>
                                   </div>
