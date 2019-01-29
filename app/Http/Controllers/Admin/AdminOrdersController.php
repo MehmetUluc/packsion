@@ -172,6 +172,20 @@ class AdminOrdersController extends Controller
 		return view('admin.shipment.list', $title)->with('shipments', $shipments);
 	}
 
+	public function open($id)
+	{
+		$shipment = Shipment::find($id);
+		if($shipment->open == 0){
+			$shipment->open = 1;
+			$shipment->save();
+		} else {
+			$shipment->open = 0;
+			$shipment->save();
+		}
+
+		return back();
+	}
+
 	public function shipmentDetail($id, Request $request)
 	{
 		$title = array('pageTitle' => Lang::get("labels.ViewShipment"));

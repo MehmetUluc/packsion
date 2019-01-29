@@ -158,7 +158,7 @@
 
 
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-5">
 				<div class="ibox">
 					<div class="ibox-title">
 						<h5>Teslimat Adresi</h5>
@@ -175,10 +175,19 @@
 
 
 		<div class="ibox-content">
+			@if($shipment->open == 0)
+			<a class="btn btn-danger" href="/admin/shipments/open/<?php echo $shipment->id; ?>">Kutuyu Kapat</a>
+			@else
+			<a class="btn btn-success" href="/admin/shipments/open/<?php echo $shipment->id; ?>">Kutuyu Aç</a>
+			@endif
 					<a target="_blank" class="btn btn-primary" href="/admin/shipments/quiz/<?php echo $shipment->id; ?>">QUIZ SONUÇLARI</a>
 					<a target="_blank" class="btn btn-primary" href="/admin/pdf/<?php echo $shipment->id; ?>">PDF ÇIKTI</a>
 					<a target="_blank" class="btn btn-primary" href="/admin/shipments/import/<?php echo $shipment->id; ?>">EXCEL ÜRÜN YÜKLE</a>
+					@if($shipment->open == 0)
 					<a class="btn btn-primary" href="/admin/shipments/add_product/<?php echo $shipment->id; ?>">Ürün Ekle</a>
+					@else
+					<a class="btn btn-default" href="javascript:;">Ürün Ekle</a>
+					@endif
 				</div>
 		
 		</div>

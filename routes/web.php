@@ -170,6 +170,7 @@ Route::group(['prefix' => 'admin'], function () {
 			Route::get('/shipments/add/{id}', 'AdminOrdersController@addProduct');
 			Route::get('/shipments/add_product/{id}', 'AdminOrdersController@addProductV2');
 			Route::post('/shipments/add_product/{id}', 'AdminOrdersController@addProductV2');
+			Route::get('/shipments/open/{id}', 'AdminOrdersController@open');
 			Route::get('/shipments/import/{id}', 'AdminOrdersController@productFormExcel');
 			Route::post('/shipments/add/{id}', 'AdminOrdersController@addProduct');
 			Route::post('print_invoice', 'AdminOrdersController@print_invoice');
