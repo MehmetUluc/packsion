@@ -226,6 +226,17 @@
 							</td>
 						</tr>
 						@endif
+						@if(isset($quiz->tshirt))
+						<tr>
+							<th>Kazak Tipi:</th>
+							<td><?php foreach($quiz->tshirt as $stil) : ?>
+							<div style="float:left; text-align:center">
+								<img src="/images/<?php echo $folder . '/kazak/' . $stil; ?>.jpg" width="120"/>
+								<br /><?php echo isset($stil) ? ucwords($stil) : ''; ?></div>
+								<?php endforeach ?>
+							</td>
+						</tr>
+						@endif
 						@if(isset($quiz->pantolon))
 						<tr>
 							<th>Pantolon Tipi:</th>
@@ -357,6 +368,18 @@
 						@if(isset($quiz->tshirt))
 						<tr>
 							<th>Tişört Tipi:</th>
+							<td><?php foreach($quiz->tshirt as $stil) : ?>
+							<div style="float:left; text-align:center">
+								<img src="/images/<?php echo $folder . '/' . $stil; ?>.jpg" width="120" />
+								<br /><?php echo isset($stil) ? ucwords($stil) : ''; ?>
+								</div>
+								<?php endforeach ?>
+							</td>
+						</tr>
+						@endif
+						@if(isset($quiz->tshirt))
+						<tr>
+							<th>Kazak Tipi:</th>
 							<td><?php foreach($quiz->tshirt as $stil) : ?>
 							<div style="float:left; text-align:center">
 								<img src="/images/<?php echo $folder . '/' . $stil; ?>.jpg" width="120" />
