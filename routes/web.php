@@ -770,6 +770,7 @@ Route::post('payu/irn/{id}', 'Frontend\\PayuController@confirmpayment');
 Route::get('ship/mail/{id}', 'TestController@shipmail');
 Route::get('test/mail/', 'TestController@index');
 Route::any('test/mng', 'MNGController@index');
+Route::any('test/ups', 'MNGController@ups');
 Route::any('oauth/{id}', 'Frontend\HomeController@oauth');
 
 

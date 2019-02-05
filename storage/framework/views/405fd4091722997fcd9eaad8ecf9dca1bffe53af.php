@@ -139,7 +139,8 @@
                   </tbody>
                 </table>
                 <div class="col-xs-12 text-right">
-                	
+                	 <?php echo e($shipments->links()); ?>
+
                 </div>
               </div>
             </div>

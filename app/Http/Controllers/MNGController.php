@@ -93,6 +93,113 @@ class MNGController extends Controller
 
 
 
+  public function ups()
+  {
 
+    $xml = '<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <Login_Type1 xmlns="http://ws.ups.com.tr/wsCreateShipment">
+      <CustomerNumber>61Y0V2</CustomerNumber>
+      <UserName>cE9RNyCGjHSjMyMhZUHD</UserName>
+      <Password>mNUaNLRKBWPhDEZpaYss</Password>
+    </Login_Type1>
+  </soap:Body>
+</soap:Envelope>';
+
+$url = 'http://ws.ups.com.tr/wsCreateShipment/wsCreateShipment.asmx?WSDL';
+
+$ch = \curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+   "Content-Type", "text/xml; charset=utf-8"
+));
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $xml);
+    $response = curl_exec($ch);
+
+    print_r($response);
+      exit;
+
+
+
+    $xml = '<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <OnDemandPickupRequest_Type1 xmlns="http://ws.ups.com.tr/wsCreateShipment">
+      <SessionID>61Y0V2</SessionID>
+      <OnDemandPickupRequestInfo>
+        <LabelSource>int</LabelSource>
+        <PickupRequestDay>dateTime</PickupRequestDay>
+        <RequestedBoxList>
+          <BoxType>
+            <BoxTypeCode>int</BoxTypeCode>
+            <BoxCount>int</BoxCount>
+          </BoxType>
+          <BoxType>
+            <BoxTypeCode>int</BoxTypeCode>
+            <BoxCount>int</BoxCount>
+          </BoxType>
+        </RequestedBoxList>
+        <ShipmentInfo>
+          <ShipperAccountNumber>string</ShipperAccountNumber>
+          <ShipperName>string</ShipperName>
+          <ShipperContactName>string</ShipperContactName>
+          <ShipperAddress>string</ShipperAddress>
+          <ShipperCityCode>int</ShipperCityCode>
+          <ShipperAreaCode>int</ShipperAreaCode>
+          <ShipperPostalCode>string</ShipperPostalCode>
+          <ShipperPhoneNumber>string</ShipperPhoneNumber>
+          <ShipperPhoneExtension>string</ShipperPhoneExtension>
+          <ShipperMobilePhoneNumber>string</ShipperMobilePhoneNumber>
+          <ShipperEMail>string</ShipperEMail>
+          <ShipperExpenseCode>string</ShipperExpenseCode>
+          <ConsigneeAccountNumber>string</ConsigneeAccountNumber>
+          <ConsigneeName>string</ConsigneeName>
+          <ConsigneeContactName>string</ConsigneeContactName>
+          <ConsigneeAddress>string</ConsigneeAddress>
+          <ConsigneeCityCode>int</ConsigneeCityCode>
+          <ConsigneeAreaCode>int</ConsigneeAreaCode>
+          <ConsigneePostalCode>string</ConsigneePostalCode>
+          <ConsigneePhoneNumber>string</ConsigneePhoneNumber>
+          <ConsigneePhoneExtension>string</ConsigneePhoneExtension>
+          <ConsigneeMobilePhoneNumber>string</ConsigneeMobilePhoneNumber>
+          <ConsigneeEMail>string</ConsigneeEMail>
+          <ConsigneeExpenseCode>string</ConsigneeExpenseCode>
+          <ServiceLevel>int</ServiceLevel>
+          <PaymentType>int</PaymentType>
+          <PackageType>string</PackageType>
+          <NumberOfPackages>int</NumberOfPackages>
+          <CustomerReferance>string</CustomerReferance>
+          <CustomerInvoiceNumber>string</CustomerInvoiceNumber>
+          <DeliveryNotificationEmail>string</DeliveryNotificationEmail>
+          <IdControlFlag>int</IdControlFlag>
+          <PhonePrealertFlag>int</PhonePrealertFlag>
+          <SmsToShipper>int</SmsToShipper>
+          <SmsToConsignee>int</SmsToConsignee>
+          <InsuranceValue>decimal</InsuranceValue>
+          <InsuranceValueCurrency>string</InsuranceValueCurrency>
+          <ValueOfGoods>decimal</ValueOfGoods>
+          <ValueOfGoodsCurrency>string</ValueOfGoodsCurrency>
+          <ValueOfGoodsPaymentType>int</ValueOfGoodsPaymentType>
+          <DeliveryByTally>int</DeliveryByTally>
+          <ThirdPartyAccountNumber>string</ThirdPartyAccountNumber>
+          <ThirdPartyExpenseCode>string</ThirdPartyExpenseCode>
+          <PackageDimensions>
+            <DimensionInfo xsi:nil="true" />
+            <DimensionInfo xsi:nil="true" />
+          </PackageDimensions>
+        </ShipmentInfo>
+      </OnDemandPickupRequestInfo>
+    </OnDemandPickupRequest_Type1>
+  </soap:Body>
+</soap:Envelope>';
+  }
 
 }

@@ -394,7 +394,7 @@
 							<th>Kazak Tipi:</th>
 							<td><?php foreach($quiz->kazak as $stil) : ?>
 							<div style="float:left; text-align:center">
-								<img src="/images/<?php echo $stil; ?>.jpg" width="120" />
+								<img src="/images/<?php echo $folder . '/' . $stil; ?>.jpg" width="120" />
 								<br /><?php echo isset($stil) ? ucwords($stil) : ''; ?>
 								</div>
 								<?php endforeach ?>

@@ -137,7 +137,7 @@
                   </tbody>
                 </table>
                 <div class="col-xs-12 text-right">
-                	
+                	 {{$shipments->links()}}
                 </div>
               </div>
             </div>
