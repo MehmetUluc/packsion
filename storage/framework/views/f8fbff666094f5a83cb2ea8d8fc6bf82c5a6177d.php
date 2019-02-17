@@ -92,11 +92,11 @@
         <li class="treeview <?php echo e(Request::is('admin/listingNewsCategories') ? 'active' : ''); ?> <?php echo e(Request::is('admin/addNewsCategory') ? 'active' : ''); ?> <?php echo e(Request::is('admin/editNewsCategory/*') ? 'active' : ''); ?> <?php echo e(Request::is('admin/listingNews') ? 'active' : ''); ?>  <?php echo e(Request::is('admin/addSubNews') ? 'active' : ''); ?>  <?php echo e(Request::is('admin/editSubNews/*') ? 'active' : ''); ?>">
           <a href="#">
             <i class="fa fa-database" aria-hidden="true"></i>
-<span><?php echo e(trans('labels.link_news')); ?></span> <i class="fa fa-angle-left pull-right"></i>
+<span><?php echo e(trans('Bloglar')); ?></span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-          	<li class="<?php echo e(Request::is('admin/listingNewsCategories') ? 'active' : ''); ?> <?php echo e(Request::is('admin/addNewsCategory') ? 'active' : ''); ?> <?php echo e(Request::is('admin/editNewsCategory/*') ? 'active' : ''); ?>"><a href="<?php echo e(URL::to('admin/listingNewsCategories')); ?>"><i class="fa fa-circle-o"></i><?php echo e(trans('labels.link_news_categories')); ?></a></li>
-            <li class="<?php echo e(Request::is('admin/listingNews') ? 'active' : ''); ?>  <?php echo e(Request::is('admin/addSubNews') ? 'active' : ''); ?>  <?php echo e(Request::is('admin/editSubNews/*') ? 'active' : ''); ?>"><a href="<?php echo e(URL::to('admin/listingNews')); ?>"><i class="fa fa-circle-o"></i> <?php echo e(trans('labels.link_sub_news')); ?></a></li>
+          	<li class="<?php echo e(Request::is('admin/listingNewsCategories') ? 'active' : ''); ?> <?php echo e(Request::is('admin/addNewsCategory') ? 'active' : ''); ?> <?php echo e(Request::is('admin/editNewsCategory/*') ? 'active' : ''); ?>"><a href="<?php echo e(URL::to('admin/listingNewsCategories')); ?>"><i class="fa fa-circle-o"></i><?php echo e(trans('Blog Kategorileri')); ?></a></li>
+            <li class="<?php echo e(Request::is('admin/listingNews') ? 'active' : ''); ?>  <?php echo e(Request::is('admin/addSubNews') ? 'active' : ''); ?>  <?php echo e(Request::is('admin/editSubNews/*') ? 'active' : ''); ?>"><a href="<?php echo e(URL::to('admin/listingNews')); ?>"><i class="fa fa-circle-o"></i> <?php echo e(trans('Bloglar')); ?></a></li>
           </ul>
         </li>
 

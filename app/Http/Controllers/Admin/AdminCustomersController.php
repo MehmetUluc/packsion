@@ -31,6 +31,8 @@ use Illuminate\Support\Facades\Redirect;
 //for requesting a value 
 use Illuminate\Http\Request;
 use App\Customer;
+use App\Shipment;
+use App\ShippingMeta;
 //use Illuminate\Routing\Controller;
 
 class AdminCustomersController extends Controller
@@ -43,8 +45,25 @@ class AdminCustomersController extends Controller
 		$customerData = array();
 		$message = array();
 		$errorMessage = array();
-		
-		$customers = DB::table('customers')
+		if($request->has('name')){
+			$q = $request->name;
+			$customers = DB::table('customers')
+			->LeftJoin('address_book','address_book.address_book_id','=', 'customers.customers_default_address_id')
+			->LeftJoin('countries','countries.countries_id','=', 'address_book.entry_country_id')
+			->LeftJoin('zones','zones.zone_id','=', 'address_book.entry_zone_id')
+
+			->LeftJoin('customers_info','customers_info.customers_info_id','=', 'customers.customers_id')
+
+			->select('customers.*', 'address_book.entry_gender as entry_gender', 'address_book.entry_company as entry_company', 'address_book.entry_firstname as entry_firstname', 'address_book.entry_lastname as entry_lastname', 'address_book.entry_street_address as entry_street_address', 'address_book.entry_suburb as entry_suburb', 'address_book.entry_postcode as entry_postcode', 'address_book.entry_city as entry_city', 'address_book.entry_state as entry_state', 'countries.*', 'zones.*')
+			->where(function($query) use ($q) {
+				    $query->where('customers.customers_firstname', 'LIKE', '%'.$q.'%')
+				        ->orWhere('customers.customers_lastname', 'LIKE', '%'.$q.'%');
+				        
+				})
+			->orderBy('customers.customers_id','DESC')
+			->paginate(50);
+		} else {
+			$customers = DB::table('customers')
 			->LeftJoin('address_book','address_book.address_book_id','=', 'customers.customers_default_address_id')
 			->LeftJoin('countries','countries.countries_id','=', 'address_book.entry_country_id')
 			->LeftJoin('zones','zones.zone_id','=', 'address_book.entry_zone_id')
@@ -52,6 +71,8 @@ class AdminCustomersController extends Controller
 			->select('customers.*', 'address_book.entry_gender as entry_gender', 'address_book.entry_company as entry_company', 'address_book.entry_firstname as entry_firstname', 'address_book.entry_lastname as entry_lastname', 'address_book.entry_street_address as entry_street_address', 'address_book.entry_suburb as entry_suburb', 'address_book.entry_postcode as entry_postcode', 'address_book.entry_city as entry_city', 'address_book.entry_state as entry_state', 'countries.*', 'zones.*')
 			->orderBy('customers.customers_id','DESC')
 			->paginate(50);
+		}
+		
 			
 		$result = array();
 		$index = 0;
@@ -71,8 +92,16 @@ class AdminCustomersController extends Controller
 		$customerData['message'] = $message;
 		$customerData['errorMessage'] = $errorMessage;
 		$customerData['result'] = $customers;
+		$controller = $this;
 		
-		return view("admin.listingCustomers",$title)->with('customers', $customerData);
+		return view("admin.listingCustomers",$title)->with('customers', $customerData)->with('controller', $controller);
+	}
+
+	public function customerStatus($id)
+	{
+		$shipment = Shipment::where('customer_id', $id)->orderBy('id', 'desc')->first();
+
+		return $shipment;
 	}
 	
 	//add addCustomers page
@@ -335,6 +364,24 @@ class AdminCustomersController extends Controller
 		
 		//print_r($customers);
 		return view("admin.editCustomers",$title)->with('data', $customerData);
+	}
+
+	public function boxCustomers($id)
+	{
+		$title = array('pageTitle' => Lang::get("labels.EditCustomer"));
+		//$language_id           =   $request->language_id;
+		$language_id             =   '1';	
+	
+		$shipments = Shipment::where('customer_id', $id)->where('status', 'shipped')->orderBy('id', 'desc')->get();
+
+		foreach($shipments as $key => $shipment){
+			$shipments[$key]['products'] = ShippingMeta::where('shipping_id', $shipment->id)->where('meta_key', 'product')
+				->join('products_description', 'shipping_metas.meta_value', '=', 'products_description.products_id')->get();
+
+
+		}
+
+		return view('admin.customer.shippings', $title)->with('shipments', $shipments);
 	}
 	
 	

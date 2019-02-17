@@ -20,7 +20,16 @@
       <div class="col-md-12">
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title">{{ trans('labels.ListingAllCustomers') }} </h3>
+            <form>
+              <div class="col-md-3">
+                <input type="text" class="form-control" placeholder="Ad Soyad" name="name" value="{{ request('name') }}">
+              </div>
+              <div class="col-md-2">
+                <button class="btn btn-primary">Ara</button>
+              </div>
+              
+              
+            </form> 
             <div class="box-tools pull-right">
               <ul style="list-style: none;">
                <li> <a href="addCustomers" type="button" class="btn btn-block btn-primary">{{ trans('labels.AddNewCustomers') }}</a></li>
@@ -58,6 +67,7 @@
                       <th>{{ trans('labels.Quizzes') }}</th>
                       <th>{{ trans('labels.RegisterDate') }}</th>
                       <th>{{ trans('labels.FirstPurchase') }}</th>
+                      <th>{{ trans('Durum') }}</th>
                       <th>{{ trans('labels.Action') }}</th>
                     </tr>
                   </thead>
@@ -138,6 +148,33 @@
                                       -
                                     @endif
                                     </td>
+                                    <td>@php
+
+                                        $shipment = $controller->customerStatus($listingCustomers->customers_id);
+
+
+
+                                     @endphp
+
+                                      @if($shipment)
+                                        @if($shipment->status == 'completed' || $shipment->status == 'shipped')
+                                          <label class="label label-primary">Üyelik Tamamlandıi</label>
+                                        @elseif($shipment->status == 'pending' || $shipment->status == 'paid')
+                                          <label class="label label-success">Aktif Müşteri</label>
+
+                                        @elseif($shipment->status == 'cancel')
+
+                                          <label class="label label-warning">İptal Edilmiş</label>
+                                        @elseif($shipment->status == 'freeze')
+
+                                          <label class="label label-default">Dondurulmuş</label>
+                                        @endif
+
+                                      @else 
+
+                                      <label class="label label-danger">Müşteri Değil</label>
+                                      @endif
+                                   </td>
 								<td>
 									<a data-toggle="tooltip" data-placement="bottom" title="{{ trans('labels.Edit') }}" href="editCustomers/{{ $listingCustomers->customers_id }}" class="badge bg-light-blue"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> 
 

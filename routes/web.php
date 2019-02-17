@@ -154,6 +154,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 			//edit customer
 			Route::get('/editCustomers/{id}', 'AdminCustomersController@editCustomers');
+			Route::get('/editCustomers/{id}/boxes', 'AdminCustomersController@boxCustomers');
 			Route::post('/updateCustomers', 'AdminCustomersController@updateCustomers');
 			Route::post('/deleteCustomers', 'AdminCustomersController@deleteCustomers');
 

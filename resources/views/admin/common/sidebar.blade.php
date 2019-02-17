@@ -92,11 +92,11 @@
         <li class="treeview {{ Request::is('admin/listingNewsCategories') ? 'active' : '' }} {{ Request::is('admin/addNewsCategory') ? 'active' : '' }} {{ Request::is('admin/editNewsCategory/*') ? 'active' : '' }} {{ Request::is('admin/listingNews') ? 'active' : '' }}  {{ Request::is('admin/addSubNews') ? 'active' : '' }}  {{ Request::is('admin/editSubNews/*') ? 'active' : '' }}">
           <a href="#">
             <i class="fa fa-database" aria-hidden="true"></i>
-<span>{{ trans('labels.link_news') }}</span> <i class="fa fa-angle-left pull-right"></i>
+<span>{{ trans('Bloglar') }}</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-          	<li class="{{ Request::is('admin/listingNewsCategories') ? 'active' : '' }} {{ Request::is('admin/addNewsCategory') ? 'active' : '' }} {{ Request::is('admin/editNewsCategory/*') ? 'active' : '' }}"><a href="{{ URL::to('admin/listingNewsCategories')}}"><i class="fa fa-circle-o"></i>{{ trans('labels.link_news_categories') }}</a></li>
-            <li class="{{ Request::is('admin/listingNews') ? 'active' : '' }}  {{ Request::is('admin/addSubNews') ? 'active' : '' }}  {{ Request::is('admin/editSubNews/*') ? 'active' : '' }}"><a href="{{ URL::to('admin/listingNews')}}"><i class="fa fa-circle-o"></i> {{ trans('labels.link_sub_news') }}</a></li>
+          	<li class="{{ Request::is('admin/listingNewsCategories') ? 'active' : '' }} {{ Request::is('admin/addNewsCategory') ? 'active' : '' }} {{ Request::is('admin/editNewsCategory/*') ? 'active' : '' }}"><a href="{{ URL::to('admin/listingNewsCategories')}}"><i class="fa fa-circle-o"></i>{{ trans('Blog Kategorileri') }}</a></li>
+            <li class="{{ Request::is('admin/listingNews') ? 'active' : '' }}  {{ Request::is('admin/addSubNews') ? 'active' : '' }}  {{ Request::is('admin/editSubNews/*') ? 'active' : '' }}"><a href="{{ URL::to('admin/listingNews')}}"><i class="fa fa-circle-o"></i> {{ trans('Bloglar') }}</a></li>
           </ul>
         </li>
 

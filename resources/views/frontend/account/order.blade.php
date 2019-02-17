@@ -63,8 +63,16 @@
                       <article>
                         <div class="v-align-middle">
                           <h4>{{ $order->products_name }}</h4>
+                          @php 
+                            $date = strftime('%d %B %Y ', strtotime($order->date_added));
 
-                          <p>Başlangıç Tarihi: {{ strftime('%d %B %Y ', strtotime($order->date_added)) }} <br />
+                            $english = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                            $turkish = ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'];
+
+                            $date_tr = str_replace($english, $turkish, $date)
+
+                          @endphp
+                          <p>Başlangıç Tarihi: {{ $date_tr }} <br />
                           Kutuların Yollandığı Tarih Aralığı: Sipariş tarihinden itibaren 10 gün.<br />
                           Abonelik Ücreti: {{ $order->order_price }} ₺<br >
                           Toplam Abonelik Süresi: {{$order->count}} Ay<br >

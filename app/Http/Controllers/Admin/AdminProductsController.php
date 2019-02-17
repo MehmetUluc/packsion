@@ -194,6 +194,14 @@ class AdminProductsController extends Controller
 					'products_image'  		 =>   $uploadImage,
 					'sku'  		 =>   $uploadImage,
 					'manufacturers_id'		 =>   $request->sku,
+					'marka'		 =>   $request->marka,
+					'koleksiyon'		 =>   $request->koleksiyon,
+					'stil'		 =>   $request->stil,
+					'types'		 =>   $request->types,
+					'types2'		 =>   $request->types2,
+					'color'		 =>   $request->color,
+					'size'		 =>   $request->size,
+					'gender'		 =>   $request->gender,
 					'products_quantity'		 =>   $request->products_quantity,
 					'products_model'		 =>   $request->products_model,
 					'products_price'		 =>   $request->products_price,
@@ -202,7 +210,8 @@ class AdminProductsController extends Controller
 					'products_status'		 =>   $request->products_status,
 					'products_tax_class_id'  =>   $request->tax_class_id,
 					'products_weight_unit'	 =>	  $request->products_weight_unit,
-					'low_limit'				 =>   $request->low_limit
+					'low_limit'				 =>   $request->low_limit,
+					'barkod' => $request->marka . $request->gender . $request->koleksiyon . $request->stil . $request->types . $request->types2 . $request->color . $request->size,
 					]);
 
 		foreach($languages as $languages_data){
@@ -593,6 +602,13 @@ class AdminProductsController extends Controller
 					'manufacturers_id'		 =>   $request->manufacturers_id,
 					'influencer'		 =>   $request->influencer_id,
 					'gender'		 =>   $request->gender,
+					'marka'		 =>   $request->marka,
+					'koleksiyon'		 =>   $request->koleksiyon,
+					'stil'		 =>   $request->stil,
+					'types'		 =>   $request->types,
+					'types2'		 =>   $request->types2,
+					'color'		 =>   $request->color,
+					'size'		 =>   $request->size,
 					'sku'		 =>   $request->sku,
 					'products_quantity'		 =>   $request->products_quantity,
 					'products_model'		 =>   $request->products_model,
@@ -602,7 +618,8 @@ class AdminProductsController extends Controller
 					'products_status'		 =>   $request->products_status,
 					'products_tax_class_id'  =>   $request->tax_class_id,
 					'products_weight_unit'	 =>	  $request->products_weight_unit,
-					'low_limit'				 =>   $request->low_limit
+					'low_limit'				 =>   $request->low_limit,
+					'barkod' => $request->marka . $request->gender . $request->koleksiyon . $request->stil . $request->types . $request->types2 . $request->color . $request->size,
 					]);
 
 

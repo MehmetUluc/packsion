@@ -3,11 +3,11 @@
 <div class="content-wrapper"> 
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <h1> {{ trans('labels.AddNewsCategory') }} <small>{{ trans('labels.AddNewsCategory') }}...</small> </h1>
+    <h1> {{ trans('Kategori Ekle') }} <small>Kategori Ekle</small> </h1>
     <ol class="breadcrumb">
-       <li><a href="{{ URL::to('admin/dashboard/this_month') }}"><i class="fa fa-dashboard"></i> {{ trans('labels.breadcrumb_dashboard') }}</a></li>
-      <li><a href="{{ URL::to('admin/listingNewsCategories')}}"><i class="fa fa-bars"></i> {{ trans('labels.NewsCategories') }}</a></li>
-      <li class="active">{{ trans('labels.AddNewsCategory') }}</li>
+      <li><a href="{{ URL::to('admin/dashboard/this_month') }}"><i class="fa fa-dashboard"></i> {{ trans('labels.breadcrumb_dashboard') }}</a></li>
+      <li><a href="{{ URL::to('admin/listingNewsCategories') }}"><i class="fa fa-bars"></i> Kategoriler</a></li>
+      <li class="active">{{ trans('Kategori Ekle') }}</li>
     </ol>
   </section>
   
@@ -21,7 +21,7 @@
       <div class="col-md-12">
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title">{{ trans('labels.AddNewsCategory') }} </h3>
+            <h3 class="box-title">{{ trans('Kategori Ekle') }} </h3>
           </div>
           
           <!-- /.box-header -->
@@ -45,17 +45,17 @@
                             {!! Form::open(array('url' =>'admin/addNewsNewCategory', 'method'=>'post', 'class' => 'form-horizontal form-validate', 'enctype'=>'multipart/form-data')) !!}
                               @foreach($result['languages'] as $languages)
                                 <div class="form-group">
-                                  <label for="name" class="col-sm-2 col-md-3 control-label">{{ trans('labels.Name') }} ({{ $languages->name }})</label>
+                                  <label for="name" class="col-sm-2 col-md-3 control-label">{{ trans('Başlık') }} ({{ $languages->name }})</label>
                                   <div class="col-sm-10 col-md-4">
                                     <input type="text" name="categoryName_<?=$languages->languages_id?>" class="form-control field-validate">
-                                  		<span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">{{ trans('labels.NewsCategoryName') }} ({{ $languages->name }})</span>
+                                  		<span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">{{ trans('Başlık') }} ({{ $languages->name }})</span>
                                   
                                     <span class="help-block hidden">{{ trans('labels.textRequiredFieldMessage') }}</span>
                                   </div>
                                 </div>
                                @endforeach
                                 <div class="form-group">
-                                  <label for="name" class="col-sm-2 col-md-3 control-label">{{ trans('labels.Image') }} </label>
+                                  <label for="name" class="col-sm-2 col-md-3 control-label">{{ trans('Resim') }} </label>
                                   <div class="col-sm-10 col-md-4">
                                     {!! Form::file('newImage', array('id'=>'newImage')) !!}
                                   <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
@@ -73,8 +73,8 @@
                                 
                               <!-- /.box-body -->
                               <div class="box-footer text-center">
-                                <button type="submit" class="btn btn-primary">{{ trans('labels.AddNewsCategory') }}</button>
-                                <a href="listingNewsCategories" type="button" class="btn btn-default">{{ trans('labels.back') }}</a>
+                                <button type="submit" class="btn btn-primary">{{ trans('Ekle') }}</button>
+                                <a href="listingNewsCategories" type="button" class="btn btn-default">{{ trans('Geri') }}</a>
                               </div>
                               <!-- /.box-footer -->
                             {!! Form::close() !!}

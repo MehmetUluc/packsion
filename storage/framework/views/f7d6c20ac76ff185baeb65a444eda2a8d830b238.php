@@ -62,8 +62,16 @@
                       <article>
                         <div class="v-align-middle">
                           <h4><?php echo e($order->products_name); ?></h4>
+                          <?php  
+                            $date = strftime('%d %B %Y ', strtotime($order->date_added));
 
-                          <p>Başlangıç Tarihi: <?php echo e(strftime('%d %B %Y ', strtotime($order->date_added))); ?> <br />
+                            $english = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                            $turkish = ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'];
+
+                            $date_tr = str_replace($english, $turkish, $date)
+
+                           ?>
+                          <p>Başlangıç Tarihi: <?php echo e($date_tr); ?> <br />
                           Kutuların Yollandığı Tarih Aralığı: Sipariş tarihinden itibaren 10 gün.<br />
                           Abonelik Ücreti: <?php echo e($order->order_price); ?> ₺<br >
                           Toplam Abonelik Süresi: <?php echo e($order->count); ?> Ay<br >

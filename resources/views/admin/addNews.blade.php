@@ -3,11 +3,11 @@
 <div class="content-wrapper"> 
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <h1> {{ trans('labels.AddNews') }} <small>{{ trans('labels.AddNews') }} ...</small> </h1>
+    <h1> {{ trans('Bloglar') }} <small>{{ trans('Blog Ekle') }} ...</small> </h1>
     <ol class="breadcrumb">
        <li><a href="{{ URL::to('admin/dashboard/this_month') }}"><i class="fa fa-dashboard"></i> {{ trans('labels.breadcrumb_dashboard') }}</a></li>
-      <li><a href="{{ URL::to('admin/listingNews')}}"><i class="fa fa-dashboard"></i> {{ trans('labels.ListingAllNews') }}</a></li>
-      <li class="active">{{ trans('labels.AddNews') }} </li>
+      <li><a href="{{ URL::to('admin/listingNews')}}"><i class="fa fa-dashboard"></i> {{ trans('Tüm Bloglar') }}</a></li>
+      <li class="active">{{ trans('Blog Ekle') }} </li>
     </ol>
   </section>
   
@@ -21,7 +21,7 @@
       <div class="col-md-12">
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title">{{ trans('labels.AddNews') }}  </h3>
+            <h3 class="box-title">{{ trans('Blog Ekle') }}  </h3>
           </div>
           
           <!-- /.box-header -->
@@ -48,15 +48,15 @@
                             {!! Form::open(array('url' =>'admin/addNewNews', 'method'=>'post', 'class' => 'form-horizontal form-validate', 'enctype'=>'multipart/form-data')) !!}
                             
 								<div class="form-group">
-                                  <label for="name" class="col-sm-2 col-md-3 control-label">{{ trans('labels.Category') }}</label>
+                                  <label for="name" class="col-sm-2 col-md-3 control-label">{{ trans('Kategori') }}</label>
                                   <div class="col-sm-10 col-md-4">
                                       <select class="form-control field-validate" name="category_id">
-                                         <option value="">{{ trans('labels.ChooseCategory') }}</option>
+                                         <option value="">{{ trans('Kategori Seç') }}</option>
                                         @foreach ($result['newsCategories'] as $categories)
                                        		 <option value="{{ $categories->id }}">{{ $categories->name }}</option>
                                         @endforeach
                                       </select>
-                                  	  <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">{{ trans('labels.ChooseNewsCategory') }}</span>
+                                  	  <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">{{ trans('Kategori Seç') }}</span>
                                       <span class="help-block hidden">{{ trans('labels.textRequiredFieldMessage') }}</span>
                                   </div>
                                 </div>
@@ -74,11 +74,11 @@
                               @foreach($result['languages'] as $languages)
                                 
                                 <div class="form-group">
-                                      <label for="name" class="col-sm-2 col-md-3 control-label">{{ trans('labels.TitleNews') }} ({{ $languages->name }}) </label>
+                                      <label for="name" class="col-sm-2 col-md-3 control-label">{{ trans('Başlık') }} ({{ $languages->name }}) </label>
                                       <div class="col-sm-10 col-md-4">
                                       		<input type="text" name="news_name_<?=$languages->languages_id?>" class="form-control field-validate">
                                      		<span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
-                                     		{{ trans('labels.TitleNews') }} ({{ $languages->name }})</span>
+                                     		{{ trans('Başlık') }} ({{ $languages->name }})</span>
                                      
                                             <span class="help-block hidden">{{ trans('labels.textRequiredFieldMessage') }}</span>
                                       </div>
@@ -86,11 +86,11 @@
                                 
                                 
                                 <div class="form-group">
-                                      <label for="name" class="col-sm-2 col-md-3 control-label">{{ trans('labels.Description') }} ({{ $languages->name }}) </label>
+                                      <label for="name" class="col-sm-2 col-md-3 control-label">{{ trans('Metin') }} ({{ $languages->name }}) </label>
                                       <div class="col-sm-10 col-md-8">
                                         <textarea id="editor<?=$languages->languages_id?>" name="news_description_<?=$languages->languages_id?>" class="form-control" rows="10" cols="80">    	  
                                         </textarea>
-                                        <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">{{ trans('labels.Description') }} ({{ $languages->name }})</span>
+                                        <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">{{ trans('Metin') }} ({{ $languages->name }})</span>
                                      
                                         <br>
                                       </div>
@@ -98,7 +98,7 @@
                               @endforeach
                                                                 
                                 <div class="form-group">
-                                  <label for="name" class="col-sm-2 col-md-3 control-label">{{ trans('labels.Image') }}</label>
+                                  <label for="name" class="col-sm-2 col-md-3 control-label">{{ trans('Resim') }}</label>
                                   <div class="col-sm-10 col-md-4">
                                     {!! Form::file('news_image', array('id'=>'news_image')) !!}
                                     <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
@@ -108,22 +108,22 @@
                                 </div>
                                 
                                 <div class="form-group">
-                                  <label for="name" class="col-sm-2 col-md-3 control-label">{{ trans('labels.IsFeature') }}</label>
+                                  <label for="name" class="col-sm-2 col-md-3 control-label">{{ trans('Seçilmiş ?') }}</label>
                                   <div class="col-sm-10 col-md-4">
                                       <select class="form-control" name="is_feature">
-                                          <option value="1">{{ trans('labels.Yes') }}</option>
-                                          <option value="0" selected >{{ trans('labels.No') }}</option>
+                                          <option value="1">{{ trans('Evet') }}</option>
+                                          <option value="0" selected >{{ trans('Hayır') }}</option>
                                       </select>
                                       <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">{{ trans('labels.IsFeatureText') }}</span>
                                   </div>
                                 </div>
                                 
                                 <div class="form-group">
-                                  <label for="name" class="col-sm-2 col-md-3 control-label">{{ trans('labels.Status') }}</label>
+                                  <label for="name" class="col-sm-2 col-md-3 control-label">{{ trans('Durum') }}</label>
                                   <div class="col-sm-10 col-md-4">
                                       <select class="form-control" name="news_status">
-                                          <option value="1">{{ trans('labels.Active') }}</option>
-                                          <option value="0">{{ trans('labels.Inactive') }}</option>
+                                          <option value="1">{{ trans('Aktif') }}</option>
+                                          <option value="0">{{ trans('Pasif') }}</option>
                                       </select>
                                       <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
                                       {{ trans('labels.StatusInfo') }}</span>
@@ -132,8 +132,8 @@
                                 
                               <!-- /.box-body -->
                               <div class="box-footer text-center">
-                                <button type="submit" class="btn btn-primary">{{ trans('labels.AddNews') }} </button>
-                                <a href="listingNews" type="button" class="btn btn-default">{{ trans('labels.back') }}</a>
+                                <button type="submit" class="btn btn-primary">{{ trans('Ekle') }} </button>
+                                <a href="listingNews" type="button" class="btn btn-default">{{ trans('Geri') }}</a>
                               </div>
                               
                               <!-- /.box-footer -->

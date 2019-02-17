@@ -3,10 +3,10 @@
 <div class="content-wrapper"> 
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <h1> {{ trans('labels.NewsCategories') }} <small>{{ trans('labels.ListingNewsCategories') }}...</small> </h1>
+    <h1> {{ trans('Blog Kategorileri') }} <small>{{ trans('Blog Kategorileri') }}...</small> </h1>
     <ol class="breadcrumb">
        <li><a href="{{ URL::to('admin/dashboard/this_month') }}"><i class="fa fa-dashboard"></i> {{ trans('labels.breadcrumb_dashboard') }}</a></li>
-      <li class="active">{{ trans('labels.NewsCategories') }}</li>
+      <li class="active">{{ trans('Blog Kategorileri') }}</li>
     </ol>
   </section>
   
@@ -20,9 +20,9 @@
       <div class="col-md-12">
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title">{{ trans('labels.ListingNewsCategories') }} </h3>
+            <h3 class="box-title">{{ trans('Blog Kategorileri') }} </h3>
             <div class="box-tools pull-right">
-            	<a href="addNewsCategory" type="button" class="btn btn-block btn-primary">{{ trans('labels.AddNewsCategory') }}</a>
+            	<a href="addNewsCategory" type="button" class="btn btn-block btn-primary">{{ trans('Kategori Ekle') }}</a>
             </div>
           </div>
           
@@ -47,11 +47,11 @@
                   <thead>
                     <tr>
                       <th>{{ trans('labels.ID') }}</th>
-                      <th>{{ trans('labels.Name') }}</th>
-                      <th>{{ trans('labels.Image') }}</th>
+                      <th>{{ trans('Başlık') }}</th>
+                      <th>{{ trans('Resim') }}</th>
                       <!--<th>Icon</th>-->
-                      <th>{{ trans('labels.AddedLastModifiedDate') }}</th>
-                      <th>{{ trans('labels.Action') }}</th>
+                      <th>{{ trans('Son Düzenlenme') }}</th>
+                      <th>{{ trans('İşlem') }}</th>
                     </tr>
                   </thead>
                   <tbody>

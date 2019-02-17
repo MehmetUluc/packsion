@@ -109,88 +109,96 @@ class MNGController extends Controller
 
 $url = 'http://ws.ups.com.tr/wsCreateShipment/wsCreateShipment.asmx?WSDL';
 
-$ch = \curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+$headers = array(
+                        "Content-type: text/xml;charset=\"utf-8\"",
+                        "Accept: text/xml",
+                        "Cache-Control: no-cache",
+                        "Pragma: no-cache",
 
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                        "Content-length: ".strlen($xml),
+                    ); //SOAPAction: your op URL
 
-    curl_setopt($ch, CURLOPT_TIMEOUT, 60);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-   "Content-Type", "text/xml; charset=utf-8"
-));
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $xml);
-    $response = curl_exec($ch);
+$ch = curl_init();
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-    print_r($response);
-      exit;
+            curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $xml); // the SOAP request
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+             $response = curl_exec($ch); 
+$response1 = str_replace("<soap:Body>","",$response);
+            $response2 = str_replace("</soap:Body>","",$response1);
+$parser = simplexml_load_string($response2);
+
+$session = $parser->Login_Type1Response->Login_Type1Result->SessionID;
+   // print_r($parser);
 
 
+$time = date("c", time());
 
     $xml = '<?xml version="1.0" encoding="utf-8"?>
 <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <soap:Body>
     <OnDemandPickupRequest_Type1 xmlns="http://ws.ups.com.tr/wsCreateShipment">
-      <SessionID>61Y0V2</SessionID>
+      <SessionID>'. $session .'</SessionID>
       <OnDemandPickupRequestInfo>
-        <LabelSource>int</LabelSource>
-        <PickupRequestDay>dateTime</PickupRequestDay>
+        <LabelSource>1</LabelSource>
+        <PickupRequestDay>'. $time.'</PickupRequestDay>
         <RequestedBoxList>
           <BoxType>
-            <BoxTypeCode>int</BoxTypeCode>
-            <BoxCount>int</BoxCount>
+            <BoxTypeCode>1</BoxTypeCode>
+            <BoxCount>1</BoxCount>
           </BoxType>
-          <BoxType>
-            <BoxTypeCode>int</BoxTypeCode>
-            <BoxCount>int</BoxCount>
-          </BoxType>
+          
         </RequestedBoxList>
         <ShipmentInfo>
-          <ShipperAccountNumber>string</ShipperAccountNumber>
-          <ShipperName>string</ShipperName>
-          <ShipperContactName>string</ShipperContactName>
-          <ShipperAddress>string</ShipperAddress>
-          <ShipperCityCode>int</ShipperCityCode>
-          <ShipperAreaCode>int</ShipperAreaCode>
-          <ShipperPostalCode>string</ShipperPostalCode>
-          <ShipperPhoneNumber>string</ShipperPhoneNumber>
-          <ShipperPhoneExtension>string</ShipperPhoneExtension>
-          <ShipperMobilePhoneNumber>string</ShipperMobilePhoneNumber>
-          <ShipperEMail>string</ShipperEMail>
-          <ShipperExpenseCode>string</ShipperExpenseCode>
-          <ConsigneeAccountNumber>string</ConsigneeAccountNumber>
-          <ConsigneeName>string</ConsigneeName>
-          <ConsigneeContactName>string</ConsigneeContactName>
-          <ConsigneeAddress>string</ConsigneeAddress>
-          <ConsigneeCityCode>int</ConsigneeCityCode>
-          <ConsigneeAreaCode>int</ConsigneeAreaCode>
-          <ConsigneePostalCode>string</ConsigneePostalCode>
-          <ConsigneePhoneNumber>string</ConsigneePhoneNumber>
-          <ConsigneePhoneExtension>string</ConsigneePhoneExtension>
-          <ConsigneeMobilePhoneNumber>string</ConsigneeMobilePhoneNumber>
-          <ConsigneeEMail>string</ConsigneeEMail>
-          <ConsigneeExpenseCode>string</ConsigneeExpenseCode>
-          <ServiceLevel>int</ServiceLevel>
-          <PaymentType>int</PaymentType>
-          <PackageType>string</PackageType>
-          <NumberOfPackages>int</NumberOfPackages>
-          <CustomerReferance>string</CustomerReferance>
-          <CustomerInvoiceNumber>string</CustomerInvoiceNumber>
-          <DeliveryNotificationEmail>string</DeliveryNotificationEmail>
-          <IdControlFlag>int</IdControlFlag>
-          <PhonePrealertFlag>int</PhonePrealertFlag>
-          <SmsToShipper>int</SmsToShipper>
-          <SmsToConsignee>int</SmsToConsignee>
-          <InsuranceValue>decimal</InsuranceValue>
-          <InsuranceValueCurrency>string</InsuranceValueCurrency>
-          <ValueOfGoods>decimal</ValueOfGoods>
-          <ValueOfGoodsCurrency>string</ValueOfGoodsCurrency>
-          <ValueOfGoodsPaymentType>int</ValueOfGoodsPaymentType>
-          <DeliveryByTally>int</DeliveryByTally>
-          <ThirdPartyAccountNumber>string</ThirdPartyAccountNumber>
-          <ThirdPartyExpenseCode>string</ThirdPartyExpenseCode>
+          <ShipperAccountNumber></ShipperAccountNumber>
+          <ShipperName>Mehmet Uluç</ShipperName>
+          <ShipperContactName></ShipperContactName>
+          <ShipperAddress>Teiaş Mahallesi 12 Şubat Kahramanmaraş</ShipperAddress>
+          <ShipperCityCode>46</ShipperCityCode>
+          <ShipperAreaCode>46</ShipperAreaCode>
+          <ShipperPostalCode></ShipperPostalCode>
+          <ShipperPhoneNumber>05432135228</ShipperPhoneNumber>
+          <ShipperPhoneExtension></ShipperPhoneExtension>
+          <ShipperMobilePhoneNumber></ShipperMobilePhoneNumber>
+          <ShipperEMail>muluculuc@gmail.com</ShipperEMail>
+          <ShipperExpenseCode></ShipperExpenseCode>
+          <ConsigneeAccountNumber>61Y0V2</ConsigneeAccountNumber>
+          <ConsigneeName>Packsion Com</ConsigneeName>
+          <ConsigneeContactName>Packsion Com</ConsigneeContactName>
+          <ConsigneeAddress>beşiktaş mahallesi Beşiktaş İstanbul</ConsigneeAddress>
+          <ConsigneeCityCode>34</ConsigneeCityCode>
+          <ConsigneeAreaCode>34</ConsigneeAreaCode>
+          <ConsigneePostalCode></ConsigneePostalCode>
+          <ConsigneePhoneNumber></ConsigneePhoneNumber>
+          <ConsigneePhoneExtension></ConsigneePhoneExtension>
+          <ConsigneeMobilePhoneNumber></ConsigneeMobilePhoneNumber>
+          <ConsigneeEMail></ConsigneeEMail>
+          <ConsigneeExpenseCode></ConsigneeExpenseCode>
+          <ServiceLevel>5</ServiceLevel>
+          <PaymentType>1</PaymentType>
+          <PackageType>K</PackageType>
+          <NumberOfPackages>1</NumberOfPackages>
+          <CustomerReferance></CustomerReferance>
+          <CustomerInvoiceNumber></CustomerInvoiceNumber>
+          <DeliveryNotificationEmail></DeliveryNotificationEmail>
+          <IdControlFlag>0</IdControlFlag>
+          <PhonePrealertFlag>0</PhonePrealertFlag>
+          <SmsToShipper>0</SmsToShipper>
+          <SmsToConsignee>0</SmsToConsignee>
+          <InsuranceValue>0</InsuranceValue>
+          <InsuranceValueCurrency></InsuranceValueCurrency>
+          <ValueOfGoods>0</ValueOfGoods>
+          <ValueOfGoodsCurrency></ValueOfGoodsCurrency>
+          <ValueOfGoodsPaymentType>0</ValueOfGoodsPaymentType>
+          <DeliveryByTally>0</DeliveryByTally>
+          <ThirdPartyAccountNumber></ThirdPartyAccountNumber>
+          <ThirdPartyExpenseCode></ThirdPartyExpenseCode>
           <PackageDimensions>
             <DimensionInfo xsi:nil="true" />
             <DimensionInfo xsi:nil="true" />
@@ -200,6 +208,39 @@ $ch = \curl_init();
     </OnDemandPickupRequest_Type1>
   </soap:Body>
 </soap:Envelope>';
+
+
+  $url = 'http://ws.ups.com.tr/wsCreateShipment/wsCreateShipment.asmx?WSDL';
+
+  $headers = array(
+                          "Content-type: text/xml;charset=\"utf-8\"",
+                          "Accept: text/xml",
+                          "Cache-Control: no-cache",
+                          "Pragma: no-cache",
+
+                          "Content-length: ".strlen($xml),
+                      ); //SOAPAction: your op URL
+
+  $ch = curl_init();
+              curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
+              curl_setopt($ch, CURLOPT_URL, $url);
+              curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+              curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
+              curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+              curl_setopt($ch, CURLOPT_POST, true);
+              curl_setopt($ch, CURLOPT_POSTFIELDS, $xml); // the SOAP request
+              curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+               $response = curl_exec($ch); 
+  $response1 = str_replace("<soap:Body>","",$response);
+              $response2 = str_replace("</soap:Body>","",$response1);
+  $parser = simplexml_load_string($response2);
+
+ echo $response;
+
+
+
   }
 
 }

@@ -29,10 +29,10 @@
             <div class="row">
               <div class="col-xs-12">
               		<div class="box box-info">
-                        <!--<div class="box-header with-border">
-                          <h3 class="box-title">Edit category</h3>
-                        </div>-->
-                        <!-- /.box-header -->
+                        <div class="box-header">
+              <a class="btn btn-success" href="/admin/<?php echo e(request()->segment(2) . '/' . request()->segment(3)); ?>">Form</a>
+              <a class="btn btn-info" href="/admin/<?php echo e(request()->segment(2) . '/' . request()->segment(3) . '/boxes'); ?>">Paketler</a>
+            </div>
                         <br>                       
                        	<?php if(count($data['message'])>0): ?>						
 						<div class="alert alert-success alert-dismissible" role="alert">

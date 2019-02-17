@@ -44,7 +44,7 @@
             <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="col-md-4 prod">
               <form method="post">
-                <div class="image-area">
+                <div class="image-area" data-toggle="tooltip" title="<?php echo strip_tags($product->products_description); ?>">
                   <?php if($product->products_image != ''): ?>
                    <img style="width:200px !important; height:133px !important" class="img-responsive responsive-img" src="/<?php echo e($product->products_image); ?>" width="200" height="133" />
                   <?php else: ?>

@@ -3,10 +3,10 @@
 <div class="content-wrapper"> 
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <h1> {{ trans('labels.News') }} <small>{{ trans('labels.ListingAllNews') }}...</small> </h1>
+    <h1> {{ trans('Bloglar') }} <small>{{ trans('Bloglar') }}...</small> </h1>
     <ol class="breadcrumb">
       <li><a href="{{ URL::to('admin/dashboard/this_month')}}"><i class="fa fa-dashboard"></i> {{ trans('labels.breadcrumb_dashboard') }}</a></li>
-      <li class="active">{{ trans('labels.News') }}</li>
+      <li class="active">{{ trans('Bloglar') }}</li>
     </ol>
   </section>
   
@@ -20,9 +20,9 @@
       <div class="col-md-12">
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title">{{ trans('labels.ListingAllNews') }} </h3>
+            <h3 class="box-title">{{ trans('Bloglar') }} </h3>
             <div class="box-tools pull-right">
-            	<a href="addNews" type="button" class="btn btn-block btn-primary">{{ trans('labels.AddNews') }}</a>
+            	<a href="addNews" type="button" class="btn btn-block btn-primary">{{ trans('Blog Ekle') }}</a>
             </div>
           </div>
           <!-- /.box-header -->
@@ -46,11 +46,11 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
-                      <th>{{ trans('labels.ID') }}</th>
-                      <th>{{ trans('labels.Image') }}</th>
-                      <th>{{ trans('labels.Name') }}</th>
-                      <th>{{ trans('labels.Feature') }}</th>
-                      <th>{{ trans('labels.AddedLastModifiedDate') }}</th>
+                      <th>{{ trans('ID') }}</th>
+                      <th>{{ trans('Resim') }}</th>
+                      <th>{{ trans('Başlık') }}</th>
+                      <th>{{ trans('Seçilmiş') }}</th>
+                      <th>{{ trans('Son Düzenlenme') }}</th>
                       <th></th>
                     </tr>
                   </thead>

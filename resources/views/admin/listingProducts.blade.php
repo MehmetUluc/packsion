@@ -81,6 +81,7 @@
                   <thead>
                     <tr>
                       <th>{{ trans('labels.ID') }}</th>
+                      <th>{{ trans('Barkod') }}</th>
                       <th>{{ trans('labels.Image') }}</th>
                       <th>{{ trans('labels.ProductDescription') }}</th>
                       <th>{{ trans('labels.AddedLastModifiedDate') }}</th>
@@ -93,6 +94,7 @@
                     @foreach ($results['products'] as  $key=>$product)
                     	<tr>
                             <td>{{ $product->products_id }}</td>
+                            <td>{{ $product->barkod }}</td>
                             <td><img src="{{asset('').'/'.$product->products_image}}" alt="" width=" 100px" height="100px"></td>
                             <td width="45%">
                             	<strong>{{ $product->products_name }} @if(!empty($product->products_model)) ( {{ $product->products_model }} ) @endif</strong><br>

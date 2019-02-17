@@ -1,5 +1,256 @@
 
 <?php $__env->startSection('content'); ?>
+
+
+<?php 
+
+$markas = array(
+    "001"=>"KOTON",
+    "002"=>"MAVI JEANS",
+    "003"=>"DESA",
+    "004"=>"OXXO",
+    "005"=>"DERIMOD",
+    "006"=>"COLIN`S & LOFT ( EROGLU GIYIM)",
+    "007"=>"IPEKYOL - MACHKA- TWIST",
+    "008"=>"MUDO",
+    "009"=>"NETWORK-FABRIKA",
+    "010"=>"VAKKO-VAKKORAMA",
+    "011"=>"BEYMEN-BEYMEN CLUB",
+    "012"=>"YARGICI ( OUTLET) ",
+    "013"=>"JACK JONES -VERO MODA -ONLY",
+    "014"=>"PIERRE CARDIN",
+    "015"=>"LIMON COMPANY",
+    "016"=>"LEVI'S",
+    "017"=>"ROMAN",
+    "018"=>"BSL",
+    "019"=>"NESLIHAN CANPOLAT",
+    "020"=>"DILVIN",
+    "021"=>"TUBA OLMEZ",
+    "022"=>"ROBERTO NISANTASI",
+    "023"=>"MY DÜKKAN",
+  );
+
+$genders = array(
+    '001'=> 'Erkek',
+    '002'=> 'Kadın',
+    '003'=> 'Unisex',
+);
+
+$collections = array(
+
+      '001'=>'Üst',
+      '002'=> 'Alt',
+);
+
+$stils = array(
+    '001'=>'Casual',
+    '002'=>'Smart Casual',
+    '003'=>'Classic',
+    '004'=>'Fashion Forward',
+    '005'=>'Business',
+    '099'=>'Diğer'
+);
+
+$types = array(
+  '001'=>"AKSESUAR",
+  '002'=>"ASKILI",
+  '003'=>"AYAKKABI",
+  '004'=>"BLUZ",
+  '005'=>"BÜSTIYER",
+  '006'=>"CANTA",
+  '007'=>"CEKET",
+  '008'=>"ELBISE",
+  '009'=>"ETEK",
+  '010'=>"GÖMLEK",
+  '011'=>"HIRKA",
+  '012'=>"KABAN",
+  '013'=>"KAP/PARDESÜ",
+  '014'=>"KAZAK/TRIKO",
+  '015'=>"KIMONO",
+  '016'=>"MINI ÜST",
+  '017'=>"MONT",
+  '018'=>"PANCO",
+  '019'=>"PANTOLON",
+  '020'=>"PARKA",
+  '021'=>"SAHTE KÜRK",
+  '022'=>"SORT",
+  '023'=>"SÜVETER",
+  '024'=>"SWEATSHIRT",
+  '025'=>"TAKI",
+  '026'=>"TAKIM ELBISE",
+  '027'=>"TRENCKOT",
+  '028'=>"T-SHIRT",
+  '029'=>"TULUM",
+  '030'=>"TUNIK",
+  '031'=>"YAGMURLUK",
+  '032'=>"YELEK",
+  '099'=>"Diğer",
+
+);
+
+$types2 = array(
+
+"001"=>"ABIYE",
+"002"=>"ANAHTARLIK",
+"003"=>"ATKI",
+"004"=>"BABET",
+"005"=>"BAVUL",
+"006"=>"BERE",
+"007"=>"BERMUDA",
+"008"=>"BILEKLIK",
+"009"=>"BLAZER",
+"010"=>"BOMBER",
+"011"=>"BOT",
+"012"=>"BOYFRIEND",
+"013"=>"BROS",
+"014"=>"CAN",
+"015"=>"CAN ETEK ",
+"016"=>"CAPRAZ ASKI",
+"017"=>"CASUAL",
+"018"=>"CHARM",
+"019"=>"CIGARETTE",
+"020"=>"CIZME",
+"021"=>"CLUTCH",
+"022"=>"CÜZDAN",
+"023"=>"DERI",
+"024"=>"DERI SORT",
+"025"=>"DOLGU TOPUK",
+"026"=>"DÜZ",
+"027"=>"ELDIVEN",
+"028"=>"ESOFMAN ALTI",
+"029"=>"ESPADRIL",
+"030"=>"EVRAK",
+"031"=>"FULAR",
+"032"=>"GÜNLÜK",
+"033"=>"HALHAL",
+"034"=>"HIRKA",
+"035"=>"ISPANYOL",
+"036"=>"JEAN/KOT",
+"037"=>"KALEM",
+"038"=>"KISA",
+"039"=>"KISA PANTOLON",
+"040"=>"KLASIK",
+"041"=>"KOL",
+"042"=>"KOL DÜGMESI",
+"043"=>"KOLYE",
+"044"=>"KUMAS",
+"045"=>"KÜPE",
+"046"=>"LAPTOP/IPAD",
+"047"=>"LOAFER",
+"048"=>"MAKYAJ",
+"049"=>"MIDI",
+"050"=>"MINI",
+"051"=>"MUM",
+"052"=>"OFIS ",
+"053"=>"OXFORD",
+"054"=>"PIERCING",
+"055"=>"PILELI ",
+"056"=>"PLATFORM",
+"057"=>"PUF YELEK",
+"058"=>"SAAT",
+"059"=>"SAC AKSESUARI",
+"060"=>"SAL",
+"061"=>"SANDALET",
+"062"=>"SAPKA",
+"063"=>"SEMSIYE",
+"064"=>"SEYAHAT",
+"065"=>"SIRT",
+"066"=>"SKINNY",
+"067"=>"SPOR",
+"068"=>"STILETTO",
+"069"=>"TAYT",
+"070"=>"TERLIK",
+"071"=>"TOTE",
+"072"=>"TRIKO",
+"073"=>"UZUN",
+"074"=>"VÜCUT KOLYESI",
+"075"=>"YAGMUR CIZMESI",
+"076"=>"YELEK",
+"077"=>"YÜKSEK BEL",
+"078"=>"YÜZÜK",
+"099"=>"Diğer",
+
+);
+
+$colors = array(
+
+  '001'=>"Beyaz",
+  '002'=>"Siyah",
+  '003'=>"Gri",
+  '004'=>"Koyu Kahve",
+  '005'=>"Orta Kahve",
+  '006'=>"Krem",
+  '007'=>"Asker Yeşili",
+  '008'=>"Yeşil",
+  '009'=>"Koyu Mavi",
+  '010'=>"Orta Mavi",
+  '011'=>"Açık Mavi",
+  '012'=>"Mor",
+  '013'=>"Kırmızı",
+  '014'=>"Turuncu",
+  '015'=>"Sarı",
+  '016'=>"Pembe",
+  '017'=>"Altın",
+  '018'=>"Gümüş",
+  '019'=>"Diğer",
+);
+
+$sizes = array(
+
+"001"=>"XS",
+"002"=>"S",
+"003"=>"M",
+"004"=>"L",
+"005"=>"XL",
+"006"=>"XXL",
+"007"=>"3XL",
+"008"=>"4XL",
+"009"=>"24",
+"010"=>"25",
+"011"=>"26",
+"012"=>"27",
+"013"=>"28",
+"014"=>"29",
+"015"=>"30",
+"016"=>"31",
+"017"=>"32",
+"018"=>"33",
+"019"=>"34",
+"020"=>"35",
+"021"=>"36",
+"022"=>"37",
+"023"=>"38",
+"024"=>"39",
+"025"=>"40",
+"026"=>"41",
+"027"=>"42",
+"028"=>"43",
+"029"=>"44",
+"030"=>"45",
+"031"=>"46",
+"032"=>"47",
+"033"=>"48",
+"034"=>"49",
+"035"=>"50",
+"036"=>"51",
+"037"=>"52",
+"038"=>"53",
+"039"=>"54",
+"040"=>"55",
+"041"=>"56",
+"042"=>"57",
+"043"=>"58",
+"044"=>"59",
+"045"=>"60",
+"046"=>"61",
+"047"=>"62",
+"048"=>"63",
+"049"=>"64",
+);
+
+ ?>
+
+
 <div class="content-wrapper"> 
   <!-- Content Header (Page header) -->
   <section class="content-header">
@@ -95,22 +346,92 @@
                                       <select class="form-control" id="gender" name="gender">
                                          <option value=""><?php echo e('Seçiniz'); ?></option>
                                         
-                                           <option value="Erkek">Erkek</option>
-                                           <option value="Kadın">Kadın</option>
+                                           <?php $__currentLoopData = $genders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $gender): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="{$key}"><?php echo e($gender); ?></option>
+
+                                           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         
                                       </select>
                                   </div>
                                 </div>
                                 
                                 <div class="form-group">
-                                  <label for="name" class="col-sm-2 col-md-3 control-label"><?php echo e(trans('labels.Manufacturers')); ?> </label>
+                                  <label for="name" class="col-sm-2 col-md-3 control-label"><?php echo e(trans('Marka')); ?> </label>
                                   <div class="col-sm-10 col-md-4">
-                                      <select class="form-control" name="manufacturers_id">
-                                         <?php $__currentLoopData = $result['manufacturer']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $manufacturer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                          <option value="<?php echo e($manufacturer->id); ?>"><?php echo e($manufacturer->name); ?></option>
+                                      <select class="form-control" name="marka">
+                                        <option value=""><?php echo e('Seçiniz'); ?></option>
+                                        <?php $__currentLoopData = $markas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $marka): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                          <option value="<?php echo e($key); ?>"><?php echo e($marka); ?></option>
                                       	 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                      </select><span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
-                                      <?php echo e(trans('labels.ChooseManufacturerText')); ?>.</span>
+                                      </select>
+                                  </div>
+                                </div>
+                              
+                                <div class="form-group">
+                                  <label for="koleksiyon" class="col-sm-2 col-md-3 control-label"><?php echo e(trans('Koleksiyon')); ?> </label>
+                                  <div class="col-sm-10 col-md-4">
+                                      <select class="form-control" name="koleksiyon">
+                                        <option value=""><?php echo e('Seçiniz'); ?></option>
+                                        <?php $__currentLoopData = $collections; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $marka): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                          <option value="<?php echo e($key); ?>"><?php echo e($marka); ?></option>
+                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                      </select>
+                                  </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                  <label for="stil" class="col-sm-2 col-md-3 control-label"><?php echo e(trans('Stil')); ?> </label>
+                                  <div class="col-sm-10 col-md-4">
+                                      <select class="form-control" name="stil">
+                                        <option value=""><?php echo e('Seçiniz'); ?></option>
+                                        <?php $__currentLoopData = $stils; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $marka): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                          <option value="<?php echo e($key); ?>"><?php echo e($marka); ?></option>
+                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                      </select>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label for="types" class="col-sm-2 col-md-3 control-label"><?php echo e(trans('Ürün')); ?> </label>
+                                  <div class="col-sm-10 col-md-4">
+                                      <select class="form-control" name="types">
+                                        <option value=""><?php echo e('Seçiniz'); ?></option>
+                                        <?php $__currentLoopData = $types; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $marka): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                          <option value="<?php echo e($key); ?>"><?php echo e($marka); ?></option>
+                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                      </select>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label for="types2" class="col-sm-2 col-md-3 control-label"><?php echo e(trans('Ürün Tipi')); ?> </label>
+                                  <div class="col-sm-10 col-md-4">
+                                      <select class="form-control" name="types2">
+                                        <option value=""><?php echo e('Seçiniz'); ?></option>
+                                        <?php $__currentLoopData = $types2; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $marka): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                          <option value="<?php echo e($key); ?>"><?php echo e($marka); ?></option>
+                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                      </select>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label for="color" class="col-sm-2 col-md-3 control-label"><?php echo e(trans('Renk')); ?> </label>
+                                  <div class="col-sm-10 col-md-4">
+                                      <select class="form-control" name="color">
+                                        <option value=""><?php echo e('Seçiniz'); ?></option>
+                                        <?php $__currentLoopData = $colors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $marka): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                          <option value="<?php echo e($key); ?>"><?php echo e($marka); ?></option>
+                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                      </select>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label for="size" class="col-sm-2 col-md-3 control-label"><?php echo e(trans('Beden')); ?> </label>
+                                  <div class="col-sm-10 col-md-4">
+                                      <select class="form-control" name="size">
+                                        <option value=""><?php echo e('Seçiniz'); ?></option>
+                                        <?php $__currentLoopData = $sizes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $marka): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                          <option value="<?php echo e($key); ?>"><?php echo e($marka); ?></option>
+                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                      </select>
                                   </div>
                                 </div>
                                 <hr>

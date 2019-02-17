@@ -82,6 +82,7 @@
                   <thead>
                     <tr>
                       <th><?php echo e(trans('labels.ID')); ?></th>
+                      <th><?php echo e(trans('Barkod')); ?></th>
                       <th><?php echo e(trans('labels.Image')); ?></th>
                       <th><?php echo e(trans('labels.ProductDescription')); ?></th>
                       <th><?php echo e(trans('labels.AddedLastModifiedDate')); ?></th>
@@ -94,6 +95,7 @@
                     <?php $__currentLoopData = $results['products']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     	<tr>
                             <td><?php echo e($product->products_id); ?></td>
+                            <td><?php echo e($product->barkod); ?></td>
                             <td><img src="<?php echo e(asset('').'/'.$product->products_image); ?>" alt="" width=" 100px" height="100px"></td>
                             <td width="45%">
                             	<strong><?php echo e($product->products_name); ?> <?php if(!empty($product->products_model)): ?> ( <?php echo e($product->products_model); ?> ) <?php endif; ?></strong><br>
